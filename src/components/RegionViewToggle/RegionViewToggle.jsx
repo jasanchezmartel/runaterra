@@ -20,9 +20,9 @@ const RegionViewToggle = () => {
             alignItems: 'center'
         }}>
             <span style={{ color: '#c8aa6e', fontFamily: 'Cinzel, serif' }}>
-                Vista: 
+                Vista:
             </span>
-            <button 
+            <button
                 onClick={() => setViewMode('full')}
                 style={{
                     padding: '5px 10px',
@@ -36,7 +36,7 @@ const RegionViewToggle = () => {
             >
                 Completa
             </button>
-            <button 
+            <button
                 onClick={() => setViewMode('icons-only')}
                 style={{
                     padding: '5px 10px',
@@ -50,7 +50,7 @@ const RegionViewToggle = () => {
             >
                 Solo Iconos
             </button>
-            <button 
+            <button
                 onClick={toggleViewMode}
                 style={{
                     padding: '5px 10px',

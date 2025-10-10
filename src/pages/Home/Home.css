@@ -39,64 +39,23 @@
     -webkit-user-drag: none;
 }
 
-/* IDs específicos */
-#aguasestancadas { width: 11vw; }
-#ciudaddebandle { width: 10vw; }
-#demacia { width: 11vw; }
-#elvacio { width: 11vw; }
-#freljord { width: 10.50vw; }
-#islasdelasombra { width: 9vw; }
-#ixtal { width: 9vw; }
-#jonia { width: 11vw; }
-#noxus { width: 10vw; }
-#piltover { width: 10vw; }
-#runaterra { width: 10vw; }
-#shurima { width: 12vw; }
-#targon { width: 11vw; }
-#zaun { width: 10vw; }
-
 /* ===== CONTENEDOR PRINCIPAL - MODO FULL ===== */
-.factions-main-container {
+/* .factions-main-container {
     position: relative;
     flex-direction: column;
-    justify-content: flex-start;
     align-items: center;
+    top: 7vh;
     padding: 0 5vw;
     transition: all 0.5s ease;
-    gap: 20px;
-}
+} */
 
-/* Grids laterales - MODO FULL */
-.first-faction-icons {
+.region-extended {
     display: grid;
     position: relative;
-    top: 7vh;
-    left: 4vw;
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(7, 1fr);
-    gap: 2vh;
-    width: fit-content;
-    height: fit-content;
-    justify-content: center;
-    align-items: center;
     justify-items: center;
     transition: all 0.5s ease;
-}
-
-.second-faction-icons {
-    display: grid;
-    position: relative;
-    top: 7vh;
-    left: -3.9vw;
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(7, 1fr);
-    gap: 2vh;
     width: fit-content;
-    height: fit-content;
-    justify-content: center;
-    align-items: center;
-    justify-items: center;
-    transition: all 0.5s ease;
+    left: 15vw;
 }
 
 /* ===== MODO ICONS-ONLY ===== */
@@ -104,37 +63,21 @@
 /* Contenedor principal en modo icons-only */
 .factions-main-container.icons-only-view {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* 2 columnas iguales */
-    gap: 69.50vw;
-    top: 7vh;
+    grid-template-columns: 1fr 1fr;
     width: fit-content;
-    margin: 0 auto;
     justify-items: center;
-}
-
-/* Reposicionar segunda columna en modo icons-only */
-.factions-main-container.icons-only-view .second-faction-icons {
-    grid-column: 2;
-    position: static;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    align-items: center;
-    justify-content: start;
-}
-
-/* Estilos para los iconos en modo icons-only */
-.factions-main-container.icons-only-view .region-extended.icons-only-view {
-    margin: 0;
-    padding: 0;
+    left: -14.40vw;
+    gap: 85.20vw;
 }
 
 .factions-main-container.icons-only-view .region-extended.icons-only-view .faction-extended-img {
+    position: relative;
+    left: 15vw;
     width: 9vw;
-    height: 22vh;
-    margin: 0;
+    height: fit-content;
     cursor: pointer;
     transition: all 0.3s ease;
+    margin-bottom: 20px;
 }
 
 .factions-main-container.icons-only-view .region-extended.icons-only-view .faction-extended-img:hover {
@@ -144,7 +87,7 @@
 }
 
 /* Ocultar el párrafo en modo icons-only */
-.factions-main-container.icons-only-view ~ .paragraph-container {
+.factions-main-container.icons-only-view~.paragraph-container {
     display: none;
 }
 
@@ -187,10 +130,12 @@
         transform: scale(1.1);
         opacity: 1;
     }
+
     50% {
         transform: scale(1.3) translateY(-20px);
         opacity: 0.8;
     }
+
     100% {
         transform: scale(0);
         opacity: 0;
@@ -274,7 +219,9 @@
     z-index: 1001;
 }
 
-.random-btn, .reset-btn, .debug-btn {
+.random-btn,
+.reset-btn,
+.debug-btn {
     padding: 12px 24px;
     border: none;
     border-radius: 8px;
@@ -309,5 +256,5 @@
 .reset-btn:hover,
 .debug-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
