@@ -273,3 +273,13 @@
 .factions-main-container.icons-only-view~.paragraph-container {
     display: none;
 }
+
+.display-faction-container {
+    display: flex;
+    position: absolute;
+    width: 68vw;
+    height: 50vh;
+    background-color: red;
+    left: 16vw;
+    top: 19vh;
+}

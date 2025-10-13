@@ -45,6 +45,15 @@ function Home() {
                     <DynamicFaction regionName="Zaun" showName={true} layout="grid" />
                 </div>
             </div>
+            
+            <div className="display-faction-container">
+                <div>
+
+                </div>
+                <div>
+
+                </div>
+            </div>
             <Footer />
         </>
     );
