@@ -39,60 +39,92 @@
     -webkit-user-drag: none;
 }
 
-/* ===== CONTENEDOR PRINCIPAL - MODO FULL ===== */
-/* .factions-main-container {
+/* ===== CONTENEDOR PRINCIPAL ===== */
+.factions-main-container {
+    display: flex;
+    justify-content: space-between;
     position: relative;
-    flex-direction: column;
-    align-items: center;
-    top: 7vh;
-    padding: 0 5vw;
-    transition: all 0.5s ease;
-} */
-
-.region-extended {
-    display: grid;
-    position: relative;
-    justify-items: center;
-    transition: all 0.5s ease;
-    width: fit-content;
-    left: 15vw;
+    left: 5vw;
+    width: 88.90vw;
+    margin-top: 10vh;
 }
 
-/* ===== MODO ICONS-ONLY ===== */
-
-/* Contenedor principal en modo icons-only */
-.factions-main-container.icons-only-view {
+.first-faction-icons,
+.second-faction-icons {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    width: fit-content;
-    justify-items: center;
-    left: -14.40vw;
-    gap: 85.20vw;
 }
 
-.factions-main-container.icons-only-view .region-extended.icons-only-view .faction-extended-img {
-    position: relative;
-    left: 15vw;
+/* Imagen de facción base */
+.faction-extended-img {
     width: 9vw;
-    height: fit-content;
+    height: auto;
     cursor: pointer;
     transition: all 0.3s ease;
-    margin-bottom: 20px;
+    border-radius: 8px;
+    object-fit: contain;
 }
 
-.factions-main-container.icons-only-view .region-extended.icons-only-view .faction-extended-img:hover {
+.faction-extended-img:hover {
     transform: scale(1.15);
-    border-color: #c8aa6e;
     box-shadow: 0 6px 20px rgba(200, 170, 110, 0.5);
 }
 
-/* Ocultar el párrafo en modo icons-only */
-.factions-main-container.icons-only-view~.paragraph-container {
-    display: none;
+/* ===== MODO ICONS-ONLY (COMPACTO) ===== */
+.region-extended.icons-only-view {
+    padding: 10px;
+    min-height: auto;
 }
 
-/* ===== ESTILOS EXISTENTES (se mantienen igual) ===== */
+.region-extended.icons-only-view .faction-extended-img {
+    width: 8vw;
+    min-width: 80px;
+    margin-bottom: 10px;
+}
 
+/* Ocultar contenido extra en modo compacto */
+.region-extended.icons-only-view .faction-name,
+.region-extended.icons-only-view .region-grid-champion {
+    display: none !important;
+}
+
+.region-extended:not(.icons-only-view) .faction-extended-img {
+    width: 10vw;
+    min-width: 120px;
+}
+
+/* Nombre de facción */
+.faction-name {
+    color: #c8aa6e;
+    font-size: 1.8em;
+    font-weight: bold;
+    text-align: center;
+    margin: 10px 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-family: 'Helvetica', serif;
+}
+
+/* Grid de campeones */
+.region-grid-champion {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 12px;
+    width: 100%;
+    max-width: 600px;
+    justify-items: center;
+}
+
+/* Layout variations */
+.region-grid-champion.layout-grid {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 10px;
+}
+
+.region-grid-champion.layout-full {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 15px;
+}
+
+/* ===== ESTADOS ESPECIALES ===== */
 .factions-main-container.show-champions .first-faction-icons,
 .factions-main-container.show-champions .second-faction-icons {
     opacity: 0.2;
@@ -105,7 +137,6 @@
     cursor: pointer;
     filter: grayscale(0.3);
     opacity: 0.8;
-    pointer-events: auto;
 }
 
 .faction-icon:hover {
@@ -120,11 +151,69 @@
     transform: scale(1.1);
 }
 
-.faction-icon.moving-to-center {
-    animation: moveToCenter 1s ease-in-out forwards;
-    pointer-events: none;
+/* ===== CONTROLES ===== */
+.selection-controls {
+    text-align: center;
+    margin: 20px 0;
+    padding: 20px;
+    background: rgba(26, 26, 46, 0.9);
+    border-radius: 10px;
+    position: relative;
+    z-index: 10;
 }
 
+.selection-status {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    color: #c8aa6e;
+    font-weight: 500;
+}
+
+.control-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.random-btn,
+.reset-btn,
+.debug-btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.random-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.random-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.random-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.reset-btn {
+    background: #6c757d;
+    color: white;
+}
+
+.reset-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* ===== ANIMACIONES ===== */
 @keyframes moveToCenter {
     0% {
         transform: scale(1.1);
@@ -143,118 +232,44 @@
     }
 }
 
-.selected-factions-center {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4vw;
-    width: 80%;
-    max-width: 1200px;
-    animation: fadeInUp 0.8s ease-out;
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.selected-faction-group {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 2vh;
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.3);
+        opacity: 0;
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    70% {
+        transform: scale(0.9);
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
 
-.faction-header-center {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1vh;
-    margin-bottom: 2vh;
+.faction-icon.moving-to-center {
+    animation: moveToCenter 1s ease-in-out forwards;
+    pointer-events: none;
 }
 
-.faction-image-center {
-    width: 8vw;
-    height: 8vw;
-    object-fit: contain;
-    animation: bounceIn 0.8s ease-out;
-}
-
-.faction-name-center {
-    color: #c8aa6e;
-    font-size: 2em;
-    font-weight: bold;
-    text-align: center;
-    margin: 0;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-.champions-grid-center {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 15px;
-    width: 100%;
-    max-width: 600px;
-}
-
-.selection-controls {
-    text-align: center;
-    margin: 20px 5vw;
-    padding: 20px;
-    background: rgba(26, 26, 46, 0.9);
-    border-radius: 10px;
-    position: relative;
-    z-index: 10;
-    pointer-events: auto;
-}
-
-.selection-status {
-    font-size: 1.2em;
-    margin-bottom: 15px;
-    color: #c8aa6e;
-    font-weight: 500;
-}
-
-.control-buttons {
-    display: flex;
-    gap: 15px;
-    justify-content: center;
-    flex-wrap: wrap;
-    pointer-events: auto;
-    position: relative;
-    z-index: 1001;
-}
-
-.random-btn,
-.reset-btn,
-.debug-btn {
-    padding: 12px 24px;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    pointer-events: auto;
-}
-
-.random-btn {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-}
-
-.random-btn:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-}
-
-.reset-btn {
-    background: #6c757d;
-    color: white;
-}
-
-.debug-btn {
-    background: #17a2b8;
-    color: white;
-}
-
-.random-btn:hover:not(:disabled),
-.reset-btn:hover,
-.debug-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+/* Ocultar párrafo en modo compacto */
+.factions-main-container.icons-only-view~.paragraph-container {
+    display: none;
 }

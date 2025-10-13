@@ -43,7 +43,7 @@ function DynamicRegion({
     showChampionNames = true,
     layout = 'grid'
 }) {
-    const { viewMode, toggleViewMode } = useRegionViewMode();
+    const { viewMode, toggleViewMode } = useRegionViewMode(regionName, 'icons-only');
     const { champions: regionChampions } = useChampions(regionName);
 
     const regionClass = `region-extended region-${regionName} ${customClassName} ${viewMode === 'icons-only' ? 'icons-only-view' : ''}`;
