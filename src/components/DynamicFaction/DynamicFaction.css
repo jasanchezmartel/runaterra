@@ -1,10 +1,11 @@
+@import url('../../fonts/elvacio.ttf/css?family=elvacio');
+
 .faction-name {
     position: absolute;
     display: flex;
     left: 50%;
     bottom: 30px;
     transform: translateX(-50%);
-    font-family: 'Cinzel', 'Times New Roman', serif;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -17,33 +18,6 @@
         0px 0px 4px rgba(0, 0, 0, 0.1);
 }
 
-.faction-name--Shurima {
-    text-align: center;
-    font-weight: 900;
-    font-size: 2.3rem;
-    letter-spacing: 3px;
-    color: #c8aa6e;
-    text-shadow:
-        3px 3px 0 #654321,
-        -1px -1px 0 #000,
-        1px -1px 0 #000,
-        -1px 1px 0 #000,
-        1px 1px 0 #000;
-}
-
-.faction-name--Demacia {
-    font-weight: 800;
-    font-size: 2.1rem;
-    letter-spacing: 2px;
-    color: #f0e6d2;
-    text-shadow:
-        2px 2px 0 #5a4c3a,
-        -1px -1px 0 #000,
-        1px -1px 0 #000,
-        -1px 1px 0 #000,
-        1px 1px 0 #000;
-}
-
 .region-grid-champion {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -51,7 +25,7 @@
     gap: 10px;
 }
 
-.champion-name-shurima {
+/* .champion-name-shurima {
     position: absolute;
     font-family: 'Playfair Display', 'Noto Serif JP', serif;
     bottom: 30px;
@@ -72,10 +46,104 @@
         1px 1px 1px rgba(2, 15, 18, 0.3),
         2px 2px 2px rgba(0, 10, 10, 0.2),
         0px 0px 4px rgba(0, 0, 0, 0.1);
+} */
+
+/* 
+.faction-name--Aguas {
+    font-family: 'aguas';
+    color: #922FE5;
+    text-shadow: 1px 1px 0px #240F2F, -1px -1px 0px #3B1455, 1px -1px 0px #502264, -1px 1px 0px #5A03F1;
+} */
+
+.faction-name--Bandle {
+    font-family: 'elvacio';
+    color: #922FE5;
+    text-shadow: 1px 1px 0px #240F2F, -1px -1px 0px #3B1455, 1px -1px 0px #502264, -1px 1px 0px #5A03F1;
 }
 
-.region-extended.icons-only-view .faction-extended-img:hover {
-    transform: scale(1.1);
-    border-color: #c8aa6e;
-    box-shadow: 0 4px 12px rgba(200, 170, 110, 0.4);
+.faction-name--Demacia {
+    font-family: 'elvacio';
+    color: #922FE5;
+    text-shadow: 1px 1px 0px #240F2F, -1px -1px 0px #3B1455, 1px -1px 0px #502264, -1px 1px 0px #5A03F1;
+}
+
+.faction-name--Vacio {
+    font-family: 'elvacio';
+    color: #922FE5;
+    text-shadow: 1px 1px 0px #240F2F, -1px -1px 0px #3B1455, 1px -1px 0px #502264, -1px 1px 0px #5A03F1;
+}
+
+.faction-name--Freljord {
+    font-family: 'elvacio';
+    color: #922FE5;
+    text-shadow: 1px 1px 0px #240F2F, -1px -1px 0px #3B1455, 1px -1px 0px #502264, -1px 1px 0px #5A03F1;
+}
+
+.faction-name--IslaSombra {
+    font-family: 'IslaSombra';
+    color: #922FE5;
+    text-shadow: 1px 1px 0px #240F2F, -1px -1px 0px #3B1455, 1px -1px 0px #502264, -1px 1px 0px #5A03F1;
+}
+
+.faction-name--Ixtal {
+    font-family: 'elvacio';
+    color: #922FE5;
+    text-shadow: 1px 1px 0px #240F2F, -1px -1px 0px #3B1455, 1px -1px 0px #502264, -1px 1px 0px #5A03F1;
+}
+
+.faction-name--Jonia {
+    font-family: 'Jonia';
+    color: #922FE5;
+    text-shadow: 1px 1px 0px #240F2F, -1px -1px 0px #3B1455, 1px -1px 0px #502264, -1px 1px 0px #5A03F1;
+}
+
+.faction-name--Noxus {
+    font-family: 'elvacio';
+    color: #922FE5;
+    text-shadow: 1px 1px 0px #240F2F, -1px -1px 0px #3B1455, 1px -1px 0px #502264, -1px 1px 0px #5A03F1;
+}
+
+.faction-name--Piltover {
+    font-family: 'elvacio';
+    color: #922FE5;
+    text-shadow: 1px 1px 0px #240F2F, -1px -1px 0px #3B1455, 1px -1px 0px #502264, -1px 1px 0px #5A03F1;
+}
+
+.faction-name--Runaterra {
+    font-family: 'elvacio';
+    color: #922FE5;
+    text-shadow: 1px 1px 0px #240F2F, -1px -1px 0px #3B1455, 1px -1px 0px #502264, -1px 1px 0px #5A03F1;
+}
+
+.faction-name--Shurima {
+    font-family: 'elvacio';
+    color: #922FE5;
+    text-shadow: 1px 1px 0px #240F2F, -1px -1px 0px #3B1455, 1px -1px 0px #502264, -1px 1px 0px #5A03F1;
+}
+
+.faction-name--Targon {
+    font-family: 'elvacio';
+    color: #922FE5;
+    text-shadow: 1px 1px 0px #240F2F, -1px -1px 0px #3B1455, 1px -1px 0px #502264, -1px 1px 0px #5A03F1;
+}
+
+.faction-name--Zaun {
+    font-family: 'elvacio';
+    color: #922FE5;
+    text-shadow: 1px 1px 0px #240F2F, -1px -1px 0px #3B1455, 1px -1px 0px #502264, -1px 1px 0px #5A03F1;
+}
+
+@font-face {
+    font-family: 'elvacio';
+    src: url(../../fonts/elvacio.ttf);
+}
+
+@font-face {
+    font-family: 'aguas';
+    src: url(../../fonts/aguas.otf);
+}
+
+@font-face {
+    font-family: 'IslaSombra';
+    src: url(../../fonts/islasombra.otf);
 }

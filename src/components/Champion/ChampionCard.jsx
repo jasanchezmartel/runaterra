@@ -1,6 +1,6 @@
 import './ChampionCard.css';
 
-const ChampionCardFixed = ({ championName, skinNumber = 0, showName = true, className = "" }) => {
+const ChampionCardFixed = ({ championName, showName = true, className = "" }) => {
   console.log('ChampionCardFixed - championName:', championName);
 
   if (!championName) {

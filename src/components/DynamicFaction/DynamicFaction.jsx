@@ -20,12 +20,12 @@ import Targon from '../../img/factions/targon.webp';
 import Zaun from '../../img/factions/zaun.webp';
 
 const regionImages = {
-  'Aguas Estancadas': AguasEstancadas,
-  'Ciudad de Bandle': CiudadDeBandle,
+  'Aguas': AguasEstancadas,
+  'Bandle': CiudadDeBandle,
   'Demacia': Demacia,
-  'El Vacío': ElVacio,
+  'Vacio': ElVacio,
   'Freljord': Freljord,
-  'Islas de la sombra': IslasDeLaSombra,
+  'IslaSombra': IslasDeLaSombra,
   'Ixtal': Ixtal,
   'Jonia': Jonia,
   'Noxus': Noxus,

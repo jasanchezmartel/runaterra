@@ -64,11 +64,6 @@
     object-fit: contain;
 }
 
-.faction-extended-img:hover {
-    transform: scale(1.15);
-    box-shadow: 0 6px 20px rgba(200, 170, 110, 0.5);
-}
-
 /* ===== MODO ICONS-ONLY (COMPACTO) ===== */
 .region-extended.icons-only-view {
     padding: 10px;
@@ -90,17 +85,6 @@
 .region-extended:not(.icons-only-view) .faction-extended-img {
     width: 10vw;
     min-width: 120px;
-}
-
-/* Nombre de facción */
-.faction-name {
-    color: #c8aa6e;
-    font-size: 1.8em;
-    font-weight: bold;
-    text-align: center;
-    margin: 10px 0;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    font-family: 'Helvetica', serif;
 }
 
 /* Grid de campeones */
@@ -137,12 +121,6 @@
     cursor: pointer;
     filter: grayscale(0.3);
     opacity: 0.8;
-}
-
-.faction-icon:hover {
-    filter: grayscale(0);
-    opacity: 1;
-    transform: scale(1.05);
 }
 
 .faction-icon.selected {
@@ -193,11 +171,6 @@
     color: white;
 }
 
-.random-btn:hover:not(:disabled) {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
 .random-btn:disabled {
     opacity: 0.6;
     cursor: not-allowed;
@@ -206,11 +179,6 @@
 .reset-btn {
     background: #6c757d;
     color: white;
-}
-
-.reset-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 /* ===== ANIMACIONES ===== */
@@ -282,4 +250,13 @@
     background-color: red;
     left: 16vw;
     top: 19vh;
+}
+
+#Aguas {
+    font-family: 'aguas';
+}
+
+@font-face {
+    font-family: 'aguas';
+    src: url(../../fonts/aguas.otf);
 }

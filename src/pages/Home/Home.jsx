@@ -3,7 +3,7 @@ import Header from '../../components/Header/Header';
 import Footer from '../../components/Footer/Footer';
 import DynamicFaction from '../../components/DynamicFaction/DynamicFaction.jsx';
 import RegionViewToggle from '../../components/RegionViewToggle/RegionViewToggle.jsx';
-import { useRegionViewMode } from '../../hooks/useRegionViewMode.js'; // ← Importar el hook
+import { useRegionViewMode } from '../../hooks/useRegionViewMode.js';
 import './Home.css';
 
 function Home() {
@@ -27,12 +27,12 @@ function Home() {
 
             <div className={containerClass}>
                 <div className="first-faction-icons">
-                    <DynamicFaction regionName="Aguas Estancadas" showName={true} layout="grid" />
-                    <DynamicFaction regionName="Ciudad de Bandle" showName={true} layout="grid" />
+                    <DynamicFaction regionName="Aguas" showName={true} layout="grid" id="Aguas"/>
+                    <DynamicFaction regionName="Bandle" showName={true} layout="grid" />
                     <DynamicFaction regionName="Demacia" showName={true} layout="grid" />
-                    <DynamicFaction regionName="El Vacío" showName={true} layout="grid" />
+                    <DynamicFaction regionName="Vacio" showName={true} layout="grid" />
                     <DynamicFaction regionName="Freljord" showName={true} layout="grid" />
-                    <DynamicFaction regionName="Islas de la sombra" showName={true} layout="grid" />
+                    <DynamicFaction regionName="IslaSombra" showName={true} layout="grid" />
                     <DynamicFaction regionName="Ixtal" showName={true} layout="grid" />
                 </div>
                 <div className="second-faction-icons">
@@ -46,14 +46,14 @@ function Home() {
                 </div>
             </div>
             
-            <div className="display-faction-container">
+            {/* <div className="display-faction-container">
                 <div>
 
                 </div>
                 <div>
 
                 </div>
-            </div>
+            </div> */}
             <Footer />
         </>
     );
