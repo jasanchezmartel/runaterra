@@ -43,15 +43,86 @@
 .factions-main-container {
     display: flex;
     justify-content: space-between;
-    position: relative;
+    position: absolute;
     left: 5vw;
-    width: 88.90vw;
+    width: 89.20vw;
     margin-top: 10vh;
+    z-index: 1;
 }
 
 .first-faction-icons,
 .second-faction-icons {
     display: grid;
+}
+
+.faction-name--aguas-estancadas {
+    font-size: 4rem;
+    margin: 0;
+}
+
+.faction-name--ciudad-de-bandle {
+    font-size: 3.2rem;
+    margin: 0;
+}
+
+.faction-name--demacia {
+    font-size: 3.2rem;
+    margin: 0;
+}
+
+.faction-name--el-vacío {
+    font-size: 2.8rem;
+    margin: 0;
+}
+
+.faction-name--freljord {
+    font-size: 4rem;
+    margin: 0;
+}
+
+.faction-name--islas-de-la-sombra {
+    font-size: 4rem;
+    margin: 0;
+}
+
+.faction-name--ixtal {
+    font-size: 5rem;
+    margin: 0;
+}
+
+.faction-name--jonia {
+    font-size: 3.5rem;
+    margin: 0;
+}
+
+.faction-name--noxus {
+    font-size: 5rem;
+    margin: 0;
+}
+
+.faction-name--piltover {
+    font-size: 4rem;
+    margin: 0;
+}
+
+.faction-name--runaterra {
+    font-size: 4.5rem;
+    margin: 0;
+}
+
+.faction-name--shurima{
+    font-size: 6rem;
+    margin: 0;
+}
+
+.faction-name--targon {
+    font-size: 5rem;
+    margin: 0;
+}
+
+.faction-name--zaun {
+    font-size: 6rem;
+    margin: 0;
 }
 
 /* Imagen de facción base */
@@ -64,22 +135,16 @@
     object-fit: contain;
 }
 
-/* ===== MODO ICONS-ONLY (COMPACTO) ===== */
-.region-extended.icons-only-view {
-    padding: 10px;
-    min-height: auto;
-}
-
 .region-extended.icons-only-view .faction-extended-img {
-    width: 8vw;
+    width: vw;
     min-width: 80px;
     margin-bottom: 10px;
 }
 
-/* Ocultar contenido extra en modo compacto */
-.region-extended.icons-only-view .faction-name,
-.region-extended.icons-only-view .region-grid-champion {
-    display: none !important;
+.region-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .region-extended:not(.icons-only-view) .faction-extended-img {
@@ -87,7 +152,6 @@
     min-width: 120px;
 }
 
-/* Grid de campeones */
 .region-grid-champion {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -95,80 +159,6 @@
     justify-items: center;
 }
 
-/* ===== ESTADOS ESPECIALES ===== */
-.factions-main-container.show-champions .first-faction-icons,
-.factions-main-container.show-champions .second-faction-icons {
-    opacity: 0.2;
-    transform: scale(0.8);
-    pointer-events: none;
-}
-
-.faction-icon {
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    cursor: pointer;
-    filter: grayscale(0.3);
-    opacity: 0.8;
-}
-
-.faction-icon.selected {
-    filter: grayscale(0);
-    opacity: 1;
-    transform: scale(1.1);
-}
-
-/* ===== CONTROLES ===== */
-.selection-controls {
-    text-align: center;
-    margin: 20px 0;
-    padding: 20px;
-    background: rgba(26, 26, 46, 0.9);
-    border-radius: 10px;
-    position: relative;
-    z-index: 10;
-}
-
-.selection-status {
-    font-size: 1.2em;
-    margin-bottom: 15px;
-    color: #c8aa6e;
-    font-weight: 500;
-}
-
-.control-buttons {
-    display: flex;
-    gap: 15px;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.random-btn,
-.reset-btn,
-.debug-btn {
-    padding: 12px 24px;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.random-btn {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-}
-
-.random-btn:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-}
-
-.reset-btn {
-    background: #6c757d;
-    color: white;
-}
-
-/* ===== ANIMACIONES ===== */
 @keyframes moveToCenter {
     0% {
         transform: scale(1.1);
@@ -219,31 +209,11 @@
     }
 }
 
-.faction-icon.moving-to-center {
-    animation: moveToCenter 1s ease-in-out forwards;
-    pointer-events: none;
-}
-
-/* Ocultar párrafo en modo compacto */
-.factions-main-container.icons-only-view~.paragraph-container {
-    display: none;
-}
-
 .display-faction-container {
-    display: flex;
-    position: absolute;
-    width: 68vw;
-    height: 50vh;
-    background-color: red;
+    display: block;
+    position: relative;
     left: 16vw;
-    top: 19vh;
-}
-
-#Aguas {
-    font-family: 'aguas';
-}
-
-@font-face {
-    font-family: 'aguas';
-    src: url(../../fonts/aguas.otf);
+    top: 4vh;
+    width: 66.80vw;
+    min-height: 170vh; 
 }

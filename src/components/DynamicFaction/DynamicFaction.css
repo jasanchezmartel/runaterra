@@ -1,19 +1,25 @@
-.faction-name {
-    position: absolute;
+.region-extended.icons-only-view .region-content {
+    display: none !important;
+}
+
+.region-content {
+    display: block;
+}
+
+/* Asegurar que todas las clases faction-name--* se oculten */
+.region-extended.icons-only-view [class^="faction-name--"],
+.region-extended.icons-only-view [class*=" faction-name--"] {
+    display: none !important;
+}
+
+.region-extended.icons-only-view .region-grid-champion {
+    display: none !important;
+}
+
+.region-extended {
     display: flex;
-    left: 50%;
-    bottom: 30px;
-    transform: translateX(-50%);
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin: 0;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    text-shadow:
-        1px 1px 1px rgba(2, 15, 18, 0.3),
-        2px 2px 2px rgba(0, 10, 10, 0.2),
-        0px 0px 4px rgba(0, 0, 0, 0.1);
 }
 
 .region-Aguas {
@@ -206,7 +212,6 @@
 .faction-name--Aguas {
     font-family: 'Aguas Estancadas';
     font-size: 3rem;
-    margin: 0;
     color: #E5D39F;
     text-shadow: 2px 2px 0px #291C16, -2px -2px 0px #4D514B, 2px -2px 0px #876044, -2px 2px 0px #7C807D;
 }

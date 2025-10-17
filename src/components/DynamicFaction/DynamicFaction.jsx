@@ -4,6 +4,7 @@ import ChampionCard from '../Champion/ChampionCard.jsx';
 import { useRegionViewMode } from '../../hooks/useRegionViewMode.js';
 import './DynamicFaction.css';
 
+// Importación de imágenes de regiones
 import AguasEstancadas from '../../img/factions/aguasestancadas.webp';
 import CiudadDeBandle from '../../img/factions/ciudaddebandle.webp';
 import Demacia from '../../img/factions/demacia.webp';
@@ -19,53 +20,50 @@ import Shurima from '../../img/factions/shurima.webp';
 import Targon from '../../img/factions/targon.webp';
 import Zaun from '../../img/factions/zaun.webp';
 
+// Mapeo de imágenes de regiones
 const regionImages = {
-  'Aguas Estancadas': AguasEstancadas,
-  'Ciudad de Bandle': CiudadDeBandle,
-  'Demacia': Demacia,
-  'El Vacío': ElVacio,
-  'Freljord': Freljord,
-  'Islas de la sombra': IslasDeLaSombra,
-  'Ixtal': Ixtal,
-  'Jonia': Jonia,
-  'Noxus': Noxus,
-  'Piltover': Piltover,
-  'Runaterra': Runaterra,
-  'Shurima': Shurima,
-  'Targon': Targon,
-  'Zaun': Zaun
+    'Aguas Estancadas': AguasEstancadas,
+    'Ciudad de Bandle': CiudadDeBandle,
+    'Demacia': Demacia,
+    'El Vacío': ElVacio,
+    'Freljord': Freljord,
+    'Islas de la sombra': IslasDeLaSombra,
+    'Ixtal': Ixtal,
+    'Jonia': Jonia,
+    'Noxus': Noxus,
+    'Piltover': Piltover,
+    'Runaterra': Runaterra,
+    'Shurima': Shurima,
+    'Targon': Targon,
+    'Zaun': Zaun
 };
 
-function DynamicRegion({
+function DynamicFaction({
     regionName,
     customClassName = '',
-    showName = true,
-    showChampionNames = true,
-    layout = 'grid'
+    showChampionNames = true
 }) {
+    
     const { viewMode, toggleViewMode } = useRegionViewMode(regionName, 'icons-only');
     const { champions: regionChampions } = useChampions(regionName);
 
-    const regionClass = `region-extended region-${regionName} ${customClassName} ${viewMode === 'icons-only' ? 'icons-only-view' : ''}`;
-    const factionNameClass = `faction-name--${regionName}`;
-    const gridClass = `region-grid-champion layout-${layout}`;
-    
+    const regionClass = `region-extended region-${regionName.replace(/\s+/g, '-').toLowerCase()} ${customClassName} ${viewMode === 'icons-only' ? 'icons-only-view' : ''}`;
+    const factionNameClass = `faction-name--${regionName.replace(/\s+/g, '-').toLowerCase()}`;
+    const gridClass = 'region-grid-champion';
+
     const bannerImage = regionImages[regionName];
 
     return (
         <div className={regionClass}>
-            <img 
-                className="faction-extended-img" 
-                src={bannerImage} 
+            <img
+                className="faction-extended-img"
+                src={bannerImage}
                 alt={regionName}
                 onClick={toggleViewMode}
             />
-            
-            {showName && viewMode === 'full' && (
+
+            <div className="region-content">
                 <p className={factionNameClass}>{regionName.toUpperCase()}</p>
-            )}
-            
-            {viewMode === 'full' && (
                 <div className={gridClass}>
                     {regionChampions.map((champion) => (
                         <ChampionCard
@@ -77,9 +75,9 @@ function DynamicRegion({
                         />
                     ))}
                 </div>
-            )}
+            </div>
         </div>
     );
 }
 
-export default DynamicRegion;
+export default DynamicFaction;

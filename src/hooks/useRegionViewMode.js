@@ -1,19 +1,20 @@
 import { useState, useEffect } from 'react';
 
-// Eliminamos el estado global y usamos un mapa por región
-const regionViewModes = new Map(); // Almacena el viewMode por región
-const listeners = new Map(); // Listeners por región
+// Almacenamiento global del estado
+const regionViewModes = new Map();
+const listeners = new Map();
 
 export const useRegionViewMode = (regionName, initialViewMode = 'icons-only') => {
-    // Inicializar el viewMode para esta región si no existe
-    if (!regionViewModes.has(regionName)) {
-        regionViewModes.set(regionName, initialViewMode);
-    }
-
-    const [viewMode, setViewMode] = useState(regionViewModes.get(regionName));
+    const [viewMode, setViewMode] = useState(() => {
+        // Inicializar el estado solo una vez por región
+        if (!regionViewModes.has(regionName)) {
+            regionViewModes.set(regionName, initialViewMode);
+        }
+        return regionViewModes.get(regionName);
+    });
 
     useEffect(() => {
-        // Crear Set de listeners para esta región si no existe
+        // Configurar listeners para sincronizar el estado
         if (!listeners.has(regionName)) {
             listeners.set(regionName, new Set());
         }
@@ -23,10 +24,8 @@ export const useRegionViewMode = (regionName, initialViewMode = 'icons-only') =>
         
         return () => {
             regionListeners.delete(setViewMode);
-            // Limpiar si no hay más listeners para esta región
             if (regionListeners.size === 0) {
                 listeners.delete(regionName);
-                regionViewModes.delete(regionName);
             }
         };
     }, [regionName]);

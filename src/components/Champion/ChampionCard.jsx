@@ -2,7 +2,7 @@ import './ChampionCard.css';
 
 const ChampionCardFixed = ({ 
   championName, 
-  region, // Nueva prop para la región
+  region,
   showName = true, 
   className = "" 
 }) => {

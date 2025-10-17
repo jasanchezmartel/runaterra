@@ -10,8 +10,7 @@ function App() {
       <BackgroundVideo />
       <BrowserRouter>
         <Routes>
-          <Route path="/home" element={<Home />} />
-          <Route path="/homeneiro" element={<Home />} />
+          <Route path="*" element={<Home />} />
         </Routes>
       </BrowserRouter>
     </>
