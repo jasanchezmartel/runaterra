@@ -14,7 +14,7 @@
     margin-bottom: 20px;
 }
 
-.random-btn, .reset-btn {
+.random-btn {
     padding: 12px 24px;
     border: none;
     border-radius: 8px;
@@ -34,19 +34,9 @@
     cursor: not-allowed;
 }
 
-.reset-btn {
-    background: #6c757d;
-    color: white;
-}
-
 .random-btn:hover:not(:disabled) {
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
-}
-
-.reset-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(108, 117, 125, 0.4);
 }
 
 .selected-regions-display {
@@ -54,7 +44,7 @@
     animation: fadeInUp 0.5s ease-out;
 }
 
-.selected-regions-display h3 {
+.selected-regions-display {
     color: #c8aa6e;
     margin-bottom: 15px;
     font-size: 1.5rem;

@@ -109,6 +109,10 @@
 .champion-name {
     position: absolute;
     margin-bottom: 25px;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
 }
 
 .region-aguas-estancadas {

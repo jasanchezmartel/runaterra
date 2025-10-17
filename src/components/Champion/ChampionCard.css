@@ -6,4 +6,8 @@
 
 .champion-image {
     width: 11.50vw;
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
 }

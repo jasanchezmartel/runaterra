@@ -48,6 +48,7 @@
     width: 89.20vw;
     margin-top: 10vh;
     z-index: 1;
+    pointer-events: none;
 }
 
 .first-faction-icons,
@@ -133,6 +134,12 @@
     transition: all 0.3s ease;
     border-radius: 8px;
     object-fit: contain;
+    pointer-events: none;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-drag: none;
 }
 
 .region-extended.icons-only-view .faction-extended-img {
