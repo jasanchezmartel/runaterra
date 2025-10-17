@@ -91,7 +91,6 @@
 .region-grid-champion {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 30px;
     width: 60vw;
     justify-items: center;
 }
