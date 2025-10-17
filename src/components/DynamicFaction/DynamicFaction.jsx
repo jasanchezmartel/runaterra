@@ -20,12 +20,12 @@ import Targon from '../../img/factions/targon.webp';
 import Zaun from '../../img/factions/zaun.webp';
 
 const regionImages = {
-  'Aguas': AguasEstancadas,
-  'Bandle': CiudadDeBandle,
+  'Aguas Estancadas': AguasEstancadas,
+  'Ciudad de Bandle': CiudadDeBandle,
   'Demacia': Demacia,
-  'Vacio': ElVacio,
+  'El Vacío': ElVacio,
   'Freljord': Freljord,
-  'IslaSombra': IslasDeLaSombra,
+  'Islas de la sombra': IslasDeLaSombra,
   'Ixtal': Ixtal,
   'Jonia': Jonia,
   'Noxus': Noxus,
@@ -69,9 +69,10 @@ function DynamicRegion({
                 <div className={gridClass}>
                     {regionChampions.map((champion) => (
                         <ChampionCard
-                            className={`champion ${regionName}`}
+                            className={`champion-${regionName}`}
                             key={champion.name}
                             championName={champion.name}
+                            region={regionName}
                             showName={showChampionNames}
                         />
                     ))}

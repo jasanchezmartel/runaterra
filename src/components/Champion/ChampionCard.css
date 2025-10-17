@@ -1,19 +1,9 @@
 .champion-card {
-    position: relative;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    border: 2px solid transparent;
-    overflow: hidden;
+    display: grid;
+    justify-items: center;
+    align-items: end;
 }
 
-.champion-card:hover:not(.banned) {
-    transform: translateY(-5px);
-    border-color: #c8aa6e;
-    box-shadow: 0 8px 25px rgba(200, 170, 110, 0.3);
-}
-
-.champion-card.banned {
-    cursor: not-allowed;
-    opacity: 0.6;
-    filter: grayscale(1);
+.champion-image {
+    width: 11.50vw;
 }

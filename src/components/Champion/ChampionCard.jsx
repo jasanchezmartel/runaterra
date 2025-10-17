@@ -1,11 +1,12 @@
 import './ChampionCard.css';
 
-const ChampionCardFixed = ({ championName, showName = true, className = "" }) => {
+const ChampionCardFixed = ({ 
+  championName, 
+  region, // Nueva prop para la región
+  showName = true, 
+  className = "" 
+}) => {
   console.log('ChampionCardFixed - championName:', championName);
-
-  if (!championName) {
-    return <div className="champion-card error">Error: Sin nombre</div>;
-  }
   
   const championNameMapping = {
     "Maestro Yi": "MasterYi",
@@ -18,7 +19,6 @@ const ChampionCardFixed = ({ championName, showName = true, className = "" }) =>
     "Kai'Sa": "Kaisa",
     "Kha'Zix": "Khazix",
     "Vel'Koz": "Velkoz",
-    "Nunu y Willump": "Nunu",
     "Bardo": "Bard",
     "Renata Glasc": "Renata",
   };
@@ -33,13 +33,16 @@ const ChampionCardFixed = ({ championName, showName = true, className = "" }) =>
 
   const formattedName = getFormattedName(championName);
   const imageUrl = `https://ddragon.leagueoflegends.com/cdn/img/champion/loading/${formattedName}_0.jpg`;
+  const championClass = `champion-card ${className} ${region ? `region-${region.toLowerCase().replace(/\s/g, '-')}` : ''}`;
 
   return (
-      <div className={`champion-card ${className}`}>
+      <div className={championClass}>
         <img src={imageUrl} alt={championName} className="champion-image" />
-        <div className="champion-fixer">
-          {showName && <div className="champion-name" >{championName}</div>}
-        </div>
+          {showName && (
+            <div className={`champion-name region-${region ? region.toLowerCase().replace(/\s/g, '-') : 'default'}`}>
+              {championName}
+            </div>
+          )}
       </div>
   );
 };

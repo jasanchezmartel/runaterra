@@ -1,5 +1,3 @@
-@import url('../../fonts/elvacio.ttf/css?family=elvacio');
-
 .faction-name {
     position: absolute;
     display: flex;
@@ -18,132 +16,371 @@
         0px 0px 4px rgba(0, 0, 0, 0.1);
 }
 
-.region-grid-champion {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    width: fit-content;
-    gap: 10px;
+.region-Aguas {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-/* .champion-name-shurima {
+.region-Ciudad {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.region-Demacia {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.region-El {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.region-Freljord {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.region-Islas {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.region-Ixtal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.region-Jonia {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.region-Noxus {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.region-Piltover {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.region-Runaterra {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.region-Shurima {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.region-Targon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.region-Zaun {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.champion-name {
     position: absolute;
-    font-family: 'Playfair Display', 'Noto Serif JP', serif;
-    bottom: 30px;
-    transform: translateX(-50%);
-    font-weight: 900;
+    margin-bottom: 25px;
+}
+
+.region-aguas-estancadas {
+    font-family: 'Aguas Estancadas';
+    font-size: 2rem;
+    color: #E5D39F;
+    text-shadow: 2px 2px 0px #291C16, -2px -2px 0px #4D514B, 2px -2px 0px #876044, -2px 2px 0px #7C807D;
+}
+
+.region-ciudad-de-bandle {
+    font-family: 'Ciudad de Bandle';
+    font-size: 3.5rem;
+    color: #D69858;
+    text-shadow: 2px 2px 0px #000021, -2px -2px 0px #48485A, 2px -2px 0px #7E8990, -2px 2px 0px #1F1115;
+}
+
+.region-demacia {
+    font-family: 'Demacia';
+    font-size: 2rem;
+    color: #E0E3E2;
+    text-shadow: 2px 2px 0px #000605, -2px -2px 0px #000700, 2px -2px 0px #000000, -2px 2px 0px #000909;
+}
+
+.region-el-vacío {
+    font-family: 'El Vacío';
+    font-size: 1.7rem;
+    color: #922FE5;
+    text-shadow: 2px 2px 0px #240F2F, -2px -2px 0px #3B1455, 2px -2px 0px #502264, -2px 2px 0px #5A03F1;
+}
+
+.region-freljord {
+    font-family: 'Freljord';
+    font-size: 2rem;
+    color: #3FBEE8;
+    text-shadow: 1px 1px 0px #1C2125, -1px -1px 0px #0F284D, 1px -1px 0px #74AFBD, -1px 1px 0px #0E1A2B;
+}
+
+.region-islas-de-la-sombra {
+    font-family: 'Isla de la sombra';
+    font-size: 3.5rem;
+    color: #49C4CF;
+    text-shadow: 2px 2px 0px #240F2F, -2px -2px 0px #050005, 2px -2px 0px #125368, -2px 2px 0px #00000A;
+}
+
+.region-ixtal {
+    font-family: 'Ixtal';
+    font-size: 3.5rem;
+    color: #DCDDD2;
+    text-shadow: 1.5px 1.5px 0px #9B0202, -1.5px -1.5px 0px #7F6D37, 1.5px -1.5px 0px #476324, -1.5px 1.5px 0px #2B8572;
+}
+
+.region-jonia {
+    font-family: 'Jonia';
+    font-size: 3rem;
+    color: #00BB77;
+    text-shadow: 1px 1px 0px #1D1814, -1px -1px 0px #8A3828, 1px -1px 0px #326866, -1px 1px 0px #D0B796;
+}
+
+.region-noxus {
+    font-family: 'Noxus';
     font-size: 2.7rem;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    margin: 0;
-    text-align: center;
-    background: linear-gradient(135deg, #D1B996 0%, #768A85 30%, #D1B996 70%, #314340 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    background-size: 200% 200%;
-    animation: gradienteAnim 84s linear infinite;
-    text-shadow:
-        1px 1px 1px rgba(2, 15, 18, 0.3),
-        2px 2px 2px rgba(0, 10, 10, 0.2),
-        0px 0px 4px rgba(0, 0, 0, 0.1);
-} */
+    color: #A30304;
+    text-shadow: 1px 1px 0px #000000, -1px -1px 0px #A6A48D, 1px -1px 0px #000000, -1px 1px 0px #000000;
+}
 
-/* 
+.region-piltover {
+    font-family: 'Piltover';
+    font-size: 2rem;
+    color: #B69056;
+    text-shadow: 1px 1px 0px #202E2D, -1px -1px 0px #FFFFFF, 1px -1px 0px #3E3A2C, -1px 1px 0px #644C29;
+}
+
+.region-runaterra {
+    font-family: 'Runaterra';
+    font-size: 3rem;
+    color: #dada00;
+    text-shadow: 0.7px 0.7px 0px #000000, -1px -1px 0px #C2923A, 1px -1px 0px #D5A549, -1px 1px 0px #D69858;
+}
+
+.region-shurima {
+    font-family: 'Shurima';
+    font-size: 4.8rem;
+    color: #C2AD79;
+    text-shadow: 1.5px 1.5px 0px #000000, -1px -1px 0px #000000, 0.5px -0.5px 0px #000000, -1px 1px 0px #000000;
+}
+
+.region-targon {
+    font-family: 'Targon';
+    font-size: 1.8rem;
+    color: #7685A9;
+    text-shadow: 1.2px 1.2px 0px #000B16, -1.2px -1.2px 0px #1D1F39, 1.2px -1.2px 0px #362F40, -1.2px 1.2px 0px #333652;
+}
+
+.region-zaun {
+    font-family: 'Zaun';
+    font-size: 3rem;
+    color: #ACC06E;
+    text-shadow: 1px 1px 0px #240F2F, -1px -1px 0px #3B1455, 1px -1px 0px #502264, -1px 1px 0px #5A03F1;
+}
+
 .faction-name--Aguas {
-    font-family: 'aguas';
-    color: #922FE5;
-    text-shadow: 1px 1px 0px #240F2F, -1px -1px 0px #3B1455, 1px -1px 0px #502264, -1px 1px 0px #5A03F1;
-} */
+    font-family: 'Aguas Estancadas';
+    font-size: 3rem;
+    margin: 0;
+    color: #E5D39F;
+    text-shadow: 2px 2px 0px #291C16, -2px -2px 0px #4D514B, 2px -2px 0px #876044, -2px 2px 0px #7C807D;
+}
 
-.faction-name--Bandle {
-    font-family: 'elvacio';
-    color: #922FE5;
-    text-shadow: 1px 1px 0px #240F2F, -1px -1px 0px #3B1455, 1px -1px 0px #502264, -1px 1px 0px #5A03F1;
+.faction-name--Ciudad {
+    font-family: 'Ciudad de Bandle';
+    font-size: 3rem;
+    margin: 0;
+    color: #D69858;
+    text-shadow: 2px 2px 0px #000021, -2px -2px 0px #48485A, 2px -2px 0px #7E8990, -2px 2px 0px #D3CAB5;
 }
 
 .faction-name--Demacia {
-    font-family: 'elvacio';
-    color: #922FE5;
-    text-shadow: 1px 1px 0px #240F2F, -1px -1px 0px #3B1455, 1px -1px 0px #502264, -1px 1px 0px #5A03F1;
+    font-family: 'Demacia';
+    font-size: 3rem;
+    margin: 0;
+    color: #E0E3E2;
+    text-shadow: 2px 2px 0px #000605, -2px -2px 0px #000700, 2px -2px 0px #000000, -2px 2px 0px #000909;
 }
 
-.faction-name--Vacio {
-    font-family: 'elvacio';
+.faction-name--El {
+    font-family: 'El Vacío';
+    font-size: 2rem;
+    margin: 0;
     color: #922FE5;
-    text-shadow: 1px 1px 0px #240F2F, -1px -1px 0px #3B1455, 1px -1px 0px #502264, -1px 1px 0px #5A03F1;
+    text-shadow: 2px 2px 0px #240F2F, -2px -2px 0px #3B1455, 2px -2px 0px #502264, -2px 2px 0px #5A03F1;
 }
 
 .faction-name--Freljord {
-    font-family: 'elvacio';
-    color: #922FE5;
-    text-shadow: 1px 1px 0px #240F2F, -1px -1px 0px #3B1455, 1px -1px 0px #502264, -1px 1px 0px #5A03F1;
+    font-family: 'Freljord';
+    font-size: 3.5rem;
+    margin: 0;
+    color: #3FBEE8;
+    text-shadow: 1px 1px 0px #000000, -1px -1px 0px #000000, 1px -1px 0px #000000, -1px 1px 0px #000000;
 }
 
-.faction-name--IslaSombra {
-    font-family: 'IslaSombra';
-    color: #922FE5;
-    text-shadow: 1px 1px 0px #240F2F, -1px -1px 0px #3B1455, 1px -1px 0px #502264, -1px 1px 0px #5A03F1;
+.faction-name--Islas {
+    font-family: 'Isla de la sombra';
+    font-size: 4rem;
+    margin: 0;
+    color: #49C4CF;
+    text-shadow: 2px 2px 0px #240F2F, -2px -2px 0px #050005, 2px -2px 0px #125368, -2px 2px 0px #00000A;
 }
 
 .faction-name--Ixtal {
-    font-family: 'elvacio';
-    color: #922FE5;
-    text-shadow: 1px 1px 0px #240F2F, -1px -1px 0px #3B1455, 1px -1px 0px #502264, -1px 1px 0px #5A03F1;
+    font-family: 'Ixtal';
+    font-size: 5rem;
+    margin: 0;
+    color: #DCDDD2;
+    text-shadow: 1.5px 1.5px 0px #9B0202, -1.5px -1.5px 0px #7F6D37, 1.5px -1.5px 0px #476324, -1.5px 1.5px 0px #2B8572;
 }
 
 .faction-name--Jonia {
     font-family: 'Jonia';
-    color: #922FE5;
-    text-shadow: 1px 1px 0px #240F2F, -1px -1px 0px #3B1455, 1px -1px 0px #502264, -1px 1px 0px #5A03F1;
+    font-size: 4rem;
+    margin: 0;
+    color: #00BB77;
+    text-shadow: 1px 1px 0px #1D1814, -1px -1px 0px #8A3828, 1px -1px 0px #326866, -1px 1px 0px #D0B796;
 }
 
 .faction-name--Noxus {
-    font-family: 'elvacio';
-    color: #922FE5;
-    text-shadow: 1px 1px 0px #240F2F, -1px -1px 0px #3B1455, 1px -1px 0px #502264, -1px 1px 0px #5A03F1;
+    font-family: 'Noxus';
+    font-size: 4rem;
+    margin: 0;
+    color: #A30304;
+    text-shadow: 1px 1px 0px #000000, -1px -1px 0px #A6A48D, 1px -1px 0px #000000, -1px 1px 0px #000000;
 }
 
 .faction-name--Piltover {
-    font-family: 'elvacio';
-    color: #922FE5;
-    text-shadow: 1px 1px 0px #240F2F, -1px -1px 0px #3B1455, 1px -1px 0px #502264, -1px 1px 0px #5A03F1;
+    font-family: 'Piltover';
+    font-size: 4rem;
+    margin: 0;
+    color: #B69056;
+    text-shadow: 1px 1px 0px #202E2D, -1px -1px 0px #FFFFFF, 1px -1px 0px #3E3A2C, -1px 1px 0px #644C29;
 }
 
 .faction-name--Runaterra {
-    font-family: 'elvacio';
-    color: #922FE5;
-    text-shadow: 1px 1px 0px #240F2F, -1px -1px 0px #3B1455, 1px -1px 0px #502264, -1px 1px 0px #5A03F1;
+    font-family: 'Runaterra';
+    font-size: 4rem;
+    margin: 0;
+    color: #dada00;
+    text-shadow: 0.7px 0.7px 0px #000000, -1px -1px 0px #C2923A, 1px -1px 0px #D5A549, -1px 1px 0px #D69858;
 }
 
 .faction-name--Shurima {
-    font-family: 'elvacio';
-    color: #922FE5;
-    text-shadow: 1px 1px 0px #240F2F, -1px -1px 0px #3B1455, 1px -1px 0px #502264, -1px 1px 0px #5A03F1;
+    font-family: 'Shurima';
+    font-size: 3.5rem;
+    margin: 0;
+    color: #C2AD79;
+    text-shadow: 1.5px 1.5px 0px #000000, -1px -1px 0px #000000, 0.5px -0.5px 0px #000000, -1px 1px 0px #000000;
 }
 
 .faction-name--Targon {
-    font-family: 'elvacio';
-    color: #922FE5;
-    text-shadow: 1px 1px 0px #240F2F, -1px -1px 0px #3B1455, 1px -1px 0px #502264, -1px 1px 0px #5A03F1;
+    font-family: 'Targon';
+    font-size: 3.5rem;
+    margin: 0;
+    color: #7685A9;
+    text-shadow: 1.2px 1.2px 0px #000B16, -1.2px -1.2px 0px #1D1F39, 1.2px -1.2px 0px #362F40, -1.2px 1.2px 0px #333652;
 }
 
 .faction-name--Zaun {
-    font-family: 'elvacio';
-    color: #922FE5;
+    font-family: 'Zaun';
+    font-size: 7rem;
+    margin: 0;
+    color: #ACC06E;
     text-shadow: 1px 1px 0px #240F2F, -1px -1px 0px #3B1455, 1px -1px 0px #502264, -1px 1px 0px #5A03F1;
 }
 
 @font-face {
-    font-family: 'elvacio';
+    font-family: 'Aguas Estancadas';
+    src: url(../../fonts/aguasestancadas.otf);
+}
+
+@font-face {
+    font-family: 'Ciudad de Bandle';
+    src: url(../../fonts/ciudaddebandle.ttf);
+}
+
+@font-face {
+    font-family: 'Demacia';
+    src: url(../../fonts/demacia.ttf);
+}
+
+@font-face {
+    font-family: 'El Vacío';
     src: url(../../fonts/elvacio.ttf);
 }
 
 @font-face {
-    font-family: 'aguas';
-    src: url(../../fonts/aguas.otf);
+    font-family: 'Freljord';
+    src: url(../../fonts/freljord2.ttf);
 }
 
 @font-face {
-    font-family: 'IslaSombra';
-    src: url(../../fonts/islasombra.otf);
+    font-family: 'Isla de la sombra';
+    src: url(../../fonts/islasdelasombra.otf);
+}
+
+@font-face {
+    font-family: 'Ixtal';
+    src: url(../../fonts/ixtal.ttf);
+}
+
+@font-face {
+    font-family: 'Jonia';
+    src: url(../../fonts/jonia.ttf);
+}
+
+@font-face {
+    font-family: 'Noxus';
+    src: url(../../fonts/noxus.ttf);
+}
+
+@font-face {
+    font-family: 'Piltover';
+    src: url(../../fonts/piltover.ttf);
+}
+
+@font-face {
+    font-family: 'Runaterra';
+    src: url(../../fonts/runaterra.ttf);
+}
+
+@font-face {
+    font-family: 'Shurima';
+    src: url(../../fonts/shurima.ttf);
+}
+
+@font-face {
+    font-family: 'Targon';
+    src: url(../../fonts/targon.otf);
+}
+
+@font-face {
+    font-family: 'Zaun';
+    src: url(../../fonts/zaun.ttf);
 }

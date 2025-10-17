@@ -90,22 +90,10 @@
 /* Grid de campeones */
 .region-grid-champion {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 12px;
-    width: 100%;
-    max-width: 600px;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 30px;
+    width: 60vw;
     justify-items: center;
-}
-
-/* Layout variations */
-.region-grid-champion.layout-grid {
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-    gap: 10px;
-}
-
-.region-grid-champion.layout-full {
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 15px;
 }
 
 /* ===== ESTADOS ESPECIALES ===== */
