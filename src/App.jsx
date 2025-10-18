@@ -17,8 +17,8 @@ function App() {
       const height = window.innerHeight
       
       // Rangos específicos permitidos: 1700x828 hasta 1900x894
-      const isWidthSupported = width >= 1700 && width <= 1900
-      const isHeightSupported = height >= 700 && height <= 900
+      const isWidthSupported = width >= 1700 && width <= 2543
+      const isHeightSupported = height >= 700 && height <= 1371
       
       setIsSupportedMonitor(isWidthSupported && isHeightSupported)
     }
@@ -39,7 +39,7 @@ function App() {
         <div className="work-in-progress">
           🚧 Work in Progress 🚧
           <div className="work-in-progress-subtitle">
-            Esta página está optimizada para resoluciones entre 1700x828 y 1900x894
+            Esta página está optimizada para resoluciones de pantalla de 24 y 27 pulgadas (en PC) con tiempo ya se irán desplegando para otras pantallas
           </div>
           <div className="work-in-progress-resolution">
             Resolución actual: {window.innerWidth} x {window.innerHeight}
