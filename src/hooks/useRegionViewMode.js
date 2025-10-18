@@ -1,52 +1,27 @@
 import { useState, useEffect } from 'react';
 
-// Almacenamiento global del estado
-const regionViewModes = new Map();
-const listeners = new Map();
+const useRegionViewMode = (regionName, defaultMode = 'icons-only') => {
+    const [viewMode, setViewMode] = useState(defaultMode);
 
-export const useRegionViewMode = (regionName, initialViewMode = 'icons-only') => {
-    const [viewMode, setViewMode] = useState(() => {
-        // Inicializar el estado solo una vez por región
-        if (!regionViewModes.has(regionName)) {
-            regionViewModes.set(regionName, initialViewMode);
-        }
-        return regionViewModes.get(regionName);
-    });
-
+    // Efecto para cargar el modo de vista desde localStorage
     useEffect(() => {
-        // Configurar listeners para sincronizar el estado
-        if (!listeners.has(regionName)) {
-            listeners.set(regionName, new Set());
+        const savedViewMode = localStorage.getItem(`region-view-mode-${regionName}`);
+        if (savedViewMode) {
+            setViewMode(savedViewMode);
         }
-        
-        const regionListeners = listeners.get(regionName);
-        regionListeners.add(setViewMode);
-        
-        return () => {
-            regionListeners.delete(setViewMode);
-            if (regionListeners.size === 0) {
-                listeners.delete(regionName);
-            }
-        };
     }, [regionName]);
 
-    const setRegionViewMode = (mode) => {
-        regionViewModes.set(regionName, mode);
-        const regionListeners = listeners.get(regionName);
-        if (regionListeners) {
-            regionListeners.forEach(listener => listener(mode));
-        }
-    };
+    // Efecto para guardar el modo de vista en localStorage
+    useEffect(() => {
+        localStorage.setItem(`region-view-mode-${regionName}`, viewMode);
+    }, [viewMode, regionName]);
 
     const toggleViewMode = () => {
-        const currentMode = regionViewModes.get(regionName);
-        const newMode = currentMode === 'full' ? 'icons-only' : 'full';
-        setRegionViewMode(newMode);
+        setViewMode(prev => prev === 'icons-only' ? 'extended' : 'icons-only');
     };
 
-    return {
-        viewMode,
-        setViewMode: setRegionViewMode,
-        toggleViewMode
-    };
+    return { viewMode, toggleViewMode };
 };
+
+// SOLO UN EXPORT - elimina cualquier export duplicado
+export { useRegionViewMode };

@@ -1,7 +1,8 @@
 import React from 'react';
-import useChampions from '../../hooks/useChampions.js';
+import { useChampions } from '../../hooks/useChampions.js';
 import ChampionCard from '../Champion/ChampionCard.jsx';
 import { useRegionViewMode } from '../../hooks/useRegionViewMode.js';
+import { useAppContext } from '../../contexts/appContext.jsx';
 import './DynamicFaction.css';
 
 // Importación de imágenes de regiones
@@ -46,6 +47,7 @@ function DynamicFaction({
     
     const { viewMode, toggleViewMode } = useRegionViewMode(regionName, 'icons-only');
     const { champions: regionChampions } = useChampions(regionName);
+    const { selectRegionManually } = useAppContext(); // ← Usa el contexto
 
     const regionClass = `region-extended region-${regionName.replace(/\s+/g, '-').toLowerCase()} ${customClassName} ${viewMode === 'icons-only' ? 'icons-only-view' : ''}`;
     const factionNameClass = `faction-name--${regionName.replace(/\s+/g, '-').toLowerCase()}`;
@@ -53,13 +55,20 @@ function DynamicFaction({
 
     const bannerImage = regionImages[regionName];
 
+    // Función para manejar el click en la imagen de la región
+    const handleRegionClick = (e) => {
+        e.stopPropagation(); // Evitar que se propague al toggleViewMode
+        selectRegionManually(regionName); // Seleccionar región manualmente
+    };
+
     return (
         <div className={regionClass}>
             <img
                 className="faction-extended-img"
                 src={bannerImage}
                 alt={regionName}
-                onClick={toggleViewMode}
+                onClick={handleRegionClick} // ← Cambia a la nueva función
+                style={{ cursor: 'pointer' }} // ← Para indicar que es clickeable
             />
 
             <div className="region-content">

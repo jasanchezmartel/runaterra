@@ -1,13 +1,126 @@
 .champion-card {
-    display: grid;
-    justify-items: center;
-    align-items: end;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  transform-origin: center;
+  display: flex;
+  flex-direction: column;
+  /* Quitar la sombra del elemento principal */
+}
+
+.champion-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  z-index: -1;
+}
+
+.champion-card:hover::before {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.champion-card:hover {
+  transform: translateY(-5px) scale(1.05);
+  z-index: 10;
+}
+
+/* HOVER PARA BANEAR - Tooltip rojo */
+.champion-card:not(.banned):hover::after {
+  content: 'BANEAR';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(255, 0, 0, 0.9);
+  color: white;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  z-index: 20;
+  white-space: nowrap;
+  border: 1px solid #ff4444;
+}
+
+.champion-card.banned:hover {
+  transform: none;
+}
+
+.champion-card.banned:hover::before {
+  box-shadow: 0 0 0 3px #ff4444;
+}
+
+/* El resto se mantiene igual */
+.champion-card.banned {
+  filter: grayscale(100%) brightness(0.4);
+  opacity: 0.7;
 }
 
 .champion-image {
-    width: 11.50vw;
-    -webkit-user-drag: none;
-    -khtml-user-drag: none;
-    -moz-user-drag: none;
-    -o-user-drag: none;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  flex: 1;
+}
+
+.champion-card:not(.banned):hover .ban-tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+.champion-card.banned:hover .ban-tooltip {
+  opacity: 1;
+  visibility: visible;
+  background: rgba(255, 68, 68, 0.9);
+}
+
+.ban-tooltip {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-size: 12px;
+  z-index: 2;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.champion-card:not(.banned):hover .champion-image {
+  filter: brightness(1.1);
+}
+
+.champion-name {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+  text-align: center;
+  z-index: 3;
+  pointer-events: none;
+}
+
+@media (min-width: 768px) {
+  .region-grid-champion {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 15px;
+  }
 }

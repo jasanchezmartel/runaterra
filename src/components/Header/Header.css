@@ -6,13 +6,18 @@
     align-items: center;
     position: relative;
     width: 98vw;
-    top: 7.5vh;
+    top: 3.80vh;
+    height: fit-content;
     z-index: 10;
 }
 
 .header-rules {
     width: fit-content;
     height: fit-content;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
 }
 
 .page-title {
@@ -68,7 +73,7 @@
 #text-rules {
     position: absolute;
     pointer-events: none;
-    top: 1.5vh;
+    top: 1vh;
     left: 7.7vw;
     font-size: 1.5rem;
     font-family: 'Cormorant Garamond', serif;
@@ -92,7 +97,7 @@
     position: absolute;
     user-select: none;
     pointer-events: none;
-    top: 1.3vh;
+    top: 0.7vh;
     left: 86.90vw;
     font-size: 1.8rem;
     font-family: 'Cormorant Garamond', serif;

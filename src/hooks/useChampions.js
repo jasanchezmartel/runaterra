@@ -1,23 +1,19 @@
-import { useState, useEffect } from 'react';
-import championsData from '../data/champions.json';
+import { useChampionsContext } from '../contexts/championContext.jsx';
 
-const useChampions = (region = null) => {
-  const [champions, setChampions] = useState([]);
-
-  useEffect(() => {
-    let filteredChampions = championsData;
+// Cambia a export nombrado en lugar de default
+export function useChampions(regionName = null) {
+    const { 
+        getChampionsByRegion, 
+        loading 
+    } = useChampionsContext();
     
-    if (region) {
-      filteredChampions = championsData.filter(champ => 
-        champ.faction === region
-      );
-    }
-    
-    filteredChampions.sort((a, b) => a.name.localeCompare(b.name));
-    setChampions(filteredChampions);
-  }, [region]);
+    const champions = regionName ? getChampionsByRegion(regionName) : [];
 
-  return { champions };
-};
+    return { 
+        champions, 
+        loading
+    };
+}
 
-export default useChampions;
+// O si prefieres mantener export default, cambia la importación
+// export default useChampions;

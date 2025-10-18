@@ -108,7 +108,6 @@
 
 .champion-name {
     position: absolute;
-    margin-bottom: 25px;
     user-select: none;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -145,7 +144,7 @@
 
 .region-freljord {
     font-family: 'Freljord';
-    font-size: 2rem;
+    font-size: 1.8rem;
     color: #3FBEE8;
     text-shadow: 1px 1px 0px #1C2125, -1px -1px 0px #0F284D, 1px -1px 0px #74AFBD, -1px 1px 0px #0E1A2B;
 }
@@ -180,7 +179,7 @@
 
 .region-piltover {
     font-family: 'Piltover';
-    font-size: 2rem;
+    font-size: 1.6rem;
     color: #B69056;
     text-shadow: 1px 1px 0px #202E2D, -1px -1px 0px #FFFFFF, 1px -1px 0px #3E3A2C, -1px 1px 0px #644C29;
 }

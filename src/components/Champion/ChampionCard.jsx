@@ -1,12 +1,13 @@
 import './ChampionCard.css';
 
-const ChampionCardFixed = ({ 
+const ChampionCard = ({ 
   championName, 
   region,
   showName = true, 
-  className = "" 
+  className = "",
+  isBanned = false,
+  onToggleBan
 }) => {
-  console.log('ChampionCardFixed - championName:', championName);
   
   const championNameMapping = {
     "Maestro Yi": "MasterYi",
@@ -16,7 +17,7 @@ const ChampionCardFixed = ({
     "Le Blanc": "Leblanc",
     "Bel'Veth": "Belveth",
     "Cho'Gath": "Chogath",
-    "Kai'Sa": "Kaisa",
+    "Kai'Sa" : "Kaisa",
     "Kha'Zix": "Khazix",
     "Vel'Koz": "Velkoz",
     "Bardo": "Bard",
@@ -33,18 +34,29 @@ const ChampionCardFixed = ({
 
   const formattedName = getFormattedName(championName);
   const imageUrl = `https://ddragon.leagueoflegends.com/cdn/img/champion/loading/${formattedName}_0.jpg`;
-  const championClass = `champion-card ${className} ${region ? `region-${region.toLowerCase().replace(/\s/g, '-')}` : ''}`;
+  const championClass = `champion-card ${className} ${region ? `region-${region.toLowerCase().replace(/\s/g, '-')}` : ''} ${isBanned ? 'banned' : ''}`;
+
+  const handleClick = () => {
+    if (onToggleBan) {
+      onToggleBan();
+    }
+  };
 
   return (
-      <div className={championClass}>
+      <div className={championClass} onClick={handleClick}>
         <img src={imageUrl} alt={championName} className="champion-image" />
-          {showName && (
-            <div className={`champion-name region-${region ? region.toLowerCase().replace(/\s/g, '-') : 'default'}`}>
-              {championName}
-            </div>
-          )}
+        {isBanned && (
+          <div className="ban-tooltip">
+            CLICK PARA DESBANEAR
+          </div>
+        )}
+        {showName && (
+          <div className={`champion-name region-${region ? region.toLowerCase().replace(/\s/g, '-') : 'default'}`}>
+            {championName}
+          </div>
+        )}
       </div>
   );
 };
 
-export default ChampionCardFixed;
+export default ChampionCard;
