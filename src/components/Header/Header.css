@@ -73,7 +73,7 @@
 #text-rules {
     position: absolute;
     pointer-events: none;
-    top: 1vh;
+    top: 1.7vh;
     left: 7.7vw;
     font-size: 1.5rem;
     font-family: 'Cormorant Garamond', serif;
@@ -97,7 +97,7 @@
     position: absolute;
     user-select: none;
     pointer-events: none;
-    top: 0.7vh;
+    top: 0.9vh;
     left: 86.90vw;
     font-size: 1.8rem;
     font-family: 'Cormorant Garamond', serif;
@@ -105,6 +105,7 @@
     color: #FFFFFF;
     text-shadow: 3px 3px 1px #000000;
     z-index: 9;
+    pointer-events: none;
 }
 
 #reset-svg {
@@ -113,4 +114,5 @@
     transform: rotate(-15deg) rotateX(-38deg) rotateY(0deg);
     transform-style: preserve-3d;
     z-index: 8;
+    pointer-events: none;
 }
