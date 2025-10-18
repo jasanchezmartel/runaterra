@@ -1,0 +1,36 @@
+/* App.css */
+.work-in-progress-container {
+  background: #000;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.work-in-progress {
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: bold;
+  line-height: 1.4;
+}
+
+.work-in-progress-subtitle {
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  margin-top: 2rem;
+  opacity: 0.8;
+  font-weight: normal;
+}
+
+.work-in-progress-resolution {
+  font-size: clamp(0.8rem, 1.5vw, 1rem);
+  margin-top: 1rem;
+  opacity: 0.6;
+  font-weight: normal;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 10px;
+  border-radius: 5px;
+  display: inline-block;
+}
