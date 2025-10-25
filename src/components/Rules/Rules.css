@@ -36,9 +36,20 @@
 .paragraph-p {
     margin-bottom: 1.5rem;
     font-size: 1.1rem;
-    color: #ffffff !important; /* Forzar color blanco */
+    color: #ffffff !important;
     line-height: 1.7;
     text-align: left;
+    font-family: Arial, sans-serif;
+    text-indent: 3rem;
+}
+
+.paragraph-p-title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    color: #ffffff !important;
     font-family: Arial, sans-serif;
 }
 

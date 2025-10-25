@@ -17,12 +17,17 @@ function Footer() {
   return (
     <>
       <div className="footer-container">
-        <p className="footer-text">Desarrollado por:</p>
-        <div className="white-space-footer" /><a className="footer-links" href="https://github.com/jasanchez97" target="_blank" rel="noopener noreferrer">TutitoZilean</a>
-        <div className="white-space-footer" />
-        <a href="https://discord.gg/YdnrbpP" target="_blank"rel="noopener noreferrer" className="discord-link">
+        <div className="footer-main-links">
+          <p className="footer-text">Desarrollado por:</p>
+          <a className="footer-links" href="https://github.com/jasanchez97" target="_blank" rel="noopener noreferrer">TutitoZilean</a>
+          </div>
+        <div className="footer-thanks">
+          <p className="footer-text">Agradecimientos:</p>
+          <p className="footer-text">Tiburcio - Xiomara - El Osgo - Feedbackers</p>
+        </div>
+        <a href="https://discord.gg/YdnrbpP" target="_blank" rel="noopener noreferrer" className="discord-link">
           <img src={serverDiscordLogo} onMouseEnter={handleMouseEnter} onMouseOut={handleMouseOut} alt="Unirse al servidor de Discord" className="discord-logo" id="link-discord" />
-          </a>
+        </a>
       </div>
     </>
   )
