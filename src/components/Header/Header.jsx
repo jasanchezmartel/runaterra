@@ -5,11 +5,6 @@ function Header() {
   const { toggleRules, areRulesVisible, areRegionsVisible } = useAppContext();
   const { resetAllBans } = useAppContext();
 
-  console.log('Header - Estado actual:', {
-    areRulesVisible,
-    areRegionsVisible
-  });
-
   const resetSelection = () => {
     const allRegionElements = document.querySelectorAll('[class*="region-extended"]');
     allRegionElements.forEach(element => {
@@ -32,13 +27,10 @@ function Header() {
 
     resetAllBans(); // ← Resetear baneos globales
     window.dispatchEvent(new CustomEvent('resetRegions'));
-
-    console.log('Selección y baneos resetados desde Header');
   };
 
   // Función combinada que maneja tanto las reglas como la lógica existente
   const handleRulesClick = () => {
-    console.log('Click en reglas - llamando toggleRules');
     toggleRules();
   };
 

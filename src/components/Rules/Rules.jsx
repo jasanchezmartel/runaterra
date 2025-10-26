@@ -3,14 +3,6 @@ import './Rules.css';
 
 function Rules() {
     const { areRulesVisible } = useAppContext();
-    
-    console.log('Rules - areRulesVisible:', areRulesVisible);
-
-    if (!areRulesVisible) return null;
-    
-    console.log('Rules - Renderizando componente');
-
-    if (!areRulesVisible) return null;
 
     return (
         <div className="rules-overlay">

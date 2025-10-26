@@ -71,7 +71,6 @@ function normalizeFactionId(faction) {
 // CARGA DE DATOS DESDE JSON - VERSIÓN MEJORADA
 export async function loadChampionsData() {
     try {
-        console.log('🌐 Cargando datos REALES de campeones...');
         
         // IMPORTANTE: Asegúrate de que la ruta sea correcta
         const response = await fetch('/data/champions.json');
@@ -81,20 +80,15 @@ export async function loadChampionsData() {
         }
         
         const data = await response.json();
-        console.log('📦 Datos JSON recibidos:', data);
         
         if (Array.isArray(data) && data.length > 0) {
             championsData = data;
-            console.log('✅ JSON REAL cargado correctamente:', championsData.length, 'campeones');
             
             // Mostrar estadísticas de las facciones cargadas
             const loadedFactions = [...new Set(data.map(champ => champ.faction))];
-            console.log('🎯 Facciones encontradas en JSON:', loadedFactions);
-            console.log('📊 Conteo por facción:');
             
             loadedFactions.forEach(faction => {
                 const count = data.filter(champ => champ.faction === faction).length;
-                console.log(`   ${faction}: ${count} campeones`);
             });
             
             return true;
@@ -104,7 +98,6 @@ export async function loadChampionsData() {
         
     } catch (error) {
         console.error('❌ Error cargando JSON real:', error);
-        console.log('🔄 Usando datos de fallback...');
         
         // Usar datos de fallback mínimos
         guaranteeChampionsData();
@@ -114,36 +107,26 @@ export async function loadChampionsData() {
 
 // INICIALIZACIÓN DE FACCIONES - VERSIÓN QUE USA EL JSON
 function initializeFactions() {
-    console.log('🔄 Inicializando facciones con datos reales...');
     
     // Asegurar que tenemos datos
     guaranteeChampionsData();
     
     // Obtener facciones ÚNICAS del JSON
     const uniqueFactions = [...new Set(championsData.map(champ => champ.faction))];
-    console.log('🎯 Facciones únicas del JSON:', uniqueFactions);
     
     // Normalizar los nombres de facción
     const normalizedFactions = uniqueFactions
         .map(faction => normalizeFactionId(faction))
         .filter(faction => faction && typeof faction === 'string' && faction.trim() !== '');
     
-    console.log('🔧 Facciones normalizadas:', normalizedFactions);
-    
     // Combinar con TODAS las facciones posibles para tener un pool completo
     const allPossibleFactions = Object.keys(FACTION_NAMES);
     availableFactions = [...new Set([...normalizedFactions, ...allPossibleFactions])];
-    
-    console.log('✅ Pool final de facciones:', availableFactions);
-    console.log('📊 Estadísticas finales:');
-    console.log('   - Total de facciones:', availableFactions.length);
-    console.log('   - Campeones cargados:', championsData.length);
     
     availableFactions.forEach(factionId => {
         const count = championsData.filter(champ => 
             normalizeFactionId(champ.faction) === factionId
         ).length;
-        console.log(`   - ${FACTION_NAMES[factionId] || factionId}: ${count} campeones`);
     });
     
     isInitialized = true;
@@ -153,13 +136,11 @@ function initializeFactions() {
 // VERIFICACIÓN DE INICIALIZACIÓN MEJORADA
 function checkInitialization() {
     if (!isInitialized || availableFactions.length === 0) {
-        console.log('🔄 Forzando inicialización...');
         initializeFactions();
     }
     
     if (availableFactions.length < 2) {
         console.error('🚨 CRÍTICO: No hay suficientes facciones disponibles');
-        console.log('📊 Facciones disponibles:', availableFactions);
         throw new Error(`Solo hay ${availableFactions.length} facciones disponibles (se necesitan al menos 2)`);
     }
 }
@@ -167,10 +148,8 @@ function checkInitialization() {
 // INICIALIZACIÓN PRINCIPAL
 export async function initRandomSelector() {
     try {
-        console.log('🚀 Inicializando selector aleatorio...');
         await loadChampionsData();
         initializeFactions();
-        console.log('✅ Selector inicializado correctamente');
         return true;
     } catch (error) {
         console.error('❌ Error en inicialización:', error);
@@ -216,7 +195,6 @@ export function getChampionsByFaction(factionId) {
         normalizeFactionId(champ.faction) === normalizedId
     );
     
-    console.log(`📋 Campeones para ${factionId}:`, champions.length, 'encontrados');
     return champions;
 }
 
@@ -224,14 +202,11 @@ export function getChampionsByFaction(factionId) {
 export function getChampionsBySelectedFactions() {
     const result = {};
     
-    console.log('🎯 Obteniendo campeones para facciones seleccionadas:', selectedFactions);
-    
     selectedFactions.forEach(factionId => {
         const factionName = FACTION_NAMES[factionId] || factionId;
         const champions = getChampionsByFaction(factionId);
         
         result[factionName] = champions;
-        console.log(`   ${factionName}: ${champions.length} campeones`);
     });
     
     return result;
@@ -239,21 +214,16 @@ export function getChampionsBySelectedFactions() {
 
 // ALGORITMO DE SELECCIÓN ALEATORIA MEJORADO
 function getRandomFactions() {
-    console.log('🔄 Iniciando selección aleatoria...');
-    console.log('📊 Facciones disponibles:', availableFactions);
-    console.log('📝 Última selección:', lastSelectedFactions);
     
     let factionsPool = [...availableFactions];
     
     // 1. Evitar repetición de la selección anterior
     if (lastSelectedFactions.length > 0) {
         factionsPool = factionsPool.filter(faction => !lastSelectedFactions.includes(faction));
-        console.log('🎯 Facciones después de filtrar anteriores:', factionsPool);
     }
     
     // 2. Si el pool filtrado es muy pequeño, usar todas las disponibles
     if (factionsPool.length < 2) {
-        console.log('⚠️ Pool pequeño, usando todas las facciones');
         factionsPool = [...availableFactions];
     }
     
@@ -281,14 +251,12 @@ function getRandomFactions() {
         }
     }
     
-    console.log('✅ Facciones seleccionadas (únicas):', selected);
     return selected;
 }
 
 // SELECCIÓN ALEATORIA PRINCIPAL - VERSIÓN MEJORADA
 export function selectRandomFactions() {
     try {
-        console.log('🎲 Iniciando selección aleatoria...');
         
         checkInitialization();
         
@@ -307,15 +275,12 @@ export function selectRandomFactions() {
             if (uniqueFactions.length >= 2) {
                 const shuffled = [...uniqueFactions].sort(() => 0.5 - Math.random());
                 selectedFactions = shuffled.slice(0, 2);
-                console.log('🔄 Facciones corregidas:', selectedFactions);
             } else {
                 throw new Error('No hay suficientes facciones únicas disponibles');
             }
         }
         
         lastSelectedFactions = [...selectedFactions];
-        
-        console.log('🎯 Facciones finales seleccionadas:', selectedFactions);
         
         // Notificar a React sobre el cambio
         if (onFactionsChangeCallback) {
@@ -339,8 +304,6 @@ export function resetSelection() {
     if (onFactionsChangeCallback) {
         onFactionsChangeCallback([]);
     }
-    
-    console.log('🔄 Selección reiniciada');
 }
 
 // FUNCIÓN DE DEBUG MEJORADA

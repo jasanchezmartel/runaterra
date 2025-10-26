@@ -69,7 +69,6 @@ export function ChampionsProvider({ children }) {
     const resetBans = () => {
         setBannedChampions({});
         localStorage.removeItem('bannedChampions');
-        console.log('Todos los baneos han sido resetados');
     };
 
     // Función para verificar si un campeón está baneado en una región
