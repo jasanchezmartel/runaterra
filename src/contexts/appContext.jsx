@@ -1,7 +1,6 @@
-// src/contexts/AppContext.js
 import React, { createContext, useContext, useState } from 'react';
 
-const AppContext = createContext();
+export const AppContext = createContext();
 
 export function AppProvider({ children }) {
     const [areRegionsVisible, setAreRegionsVisible] = useState(true);
@@ -13,12 +12,14 @@ export function AppProvider({ children }) {
         setAreRegionsVisible(!newRulesState);
     };
 
+    const value = {
+        areRegionsVisible,
+        areRulesVisible,
+        toggleRules
+    };
+
     return (
-        <AppContext.Provider value={{
-            areRegionsVisible,
-            areRulesVisible,
-            toggleRules
-        }}>
+        <AppContext.Provider value={value}>
             {children}
         </AppContext.Provider>
     );
