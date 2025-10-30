@@ -19,7 +19,7 @@ function Footer() {
       <div className="footer-container">
         <div className="footer-main-links">
           <p className="footer-text">Desarrollado por:</p>
-          <a className="footer-links" href="https://github.com/jasanchez97" target="_blank" rel="noopener noreferrer">TutitoZilean</a>
+          <a className="footer-links" href="https://github.com/jasanchezmartel" target="_blank" rel="noopener noreferrer">TutitoZilean</a>
           </div>
         <div className="footer-thanks">
           <p className="footer-text">Agradecimientos:</p>
