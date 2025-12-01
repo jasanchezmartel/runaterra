@@ -5,7 +5,7 @@ const ChampionsContext = createContext();
 
 export function ChampionsProvider({ children }) {
     const [champions, setChampions] = useState([]);
-    const [bannedChampions, setBannedChampions] = useState({}); // ← Cambiado a objeto
+    const [bannedChampions, setBannedChampions] = useState({});
     const [loading, setLoading] = useState(true);
 
     // Cargar datos iniciales y banned champions del localStorage
@@ -13,14 +13,14 @@ export function ChampionsProvider({ children }) {
         const loadChampions = async () => {
             try {
                 setLoading(true);
-                
+
                 // Cargar campeones del JSON
                 const formattedChampions = championsData.map(champion => ({
                     ...champion,
                     region: champion.faction,
                     isBanned: false
                 }));
-                
+
                 setChampions(formattedChampions);
 
                 // Cargar banned champions del localStorage
@@ -28,7 +28,7 @@ export function ChampionsProvider({ children }) {
                 if (savedBannedChampions) {
                     setBannedChampions(JSON.parse(savedBannedChampions));
                 }
-                
+
             } catch (error) {
                 console.error('Error loading champions:', error);
             } finally {
@@ -39,7 +39,7 @@ export function ChampionsProvider({ children }) {
         loadChampions();
     }, []);
 
-    // Función para banear un campeón (AHORA necesita región)
+    // Función para banear un campeón
     const banChampion = (regionName, championName) => {
         setBannedChampions(prev => {
             const regionBans = prev[regionName] || [];
@@ -52,7 +52,7 @@ export function ChampionsProvider({ children }) {
         });
     };
 
-    // Función para desbanear un campeón (AHORA necesita región)
+    // Función para desbanear un campeón
     const unbanChampion = (regionName, championName) => {
         setBannedChampions(prev => {
             const regionBans = prev[regionName] || [];
@@ -77,16 +77,6 @@ export function ChampionsProvider({ children }) {
         return regionBans ? regionBans.includes(championName) : false;
     };
 
-    // Función para obtener campeones por región
-    const getChampionsByRegion = (regionName) => {
-        return champions
-            .filter(champion => champion.region === regionName)
-            .map(champion => ({
-                ...champion,
-                isBanned: isChampionBannedInRegion(regionName, champion.name)
-            }));
-    };
-
     // Función toggle para banear/desbanear
     const toggleBanChampion = (regionName, championName) => {
         if (isChampionBannedInRegion(regionName, championName)) {
@@ -96,13 +86,25 @@ export function ChampionsProvider({ children }) {
         }
     };
 
+    // Función para obtener campeones por región (orden alfabético)
+    const getChampionsByRegion = (regionName) => {
+        const regionChampions = champions
+            .filter(champion => champion.region === regionName)
+            .map(champion => ({
+                ...champion,
+                isBanned: isChampionBannedInRegion(regionName, champion.name)
+            }));
+        // Ordenar alfabéticamente por nombre (case-insensitive)
+        return regionChampions.sort((a, b) => a.name.localeCompare(b.name, undefined, { sensitivity: 'base' }));
+    };
+
     const value = {
         champions,
         bannedChampions,
         loading,
         banChampion,
         unbanChampion,
-        toggleBanChampion, // ← Nueva función útil
+        toggleBanChampion,
         resetBans,
         isChampionBannedInRegion,
         getChampionsByRegion

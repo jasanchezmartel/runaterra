@@ -5,6 +5,7 @@ export const AppContext = createContext();
 export function AppProvider({ children }) {
     const [areRegionsVisible, setAreRegionsVisible] = useState(true);
     const [areRulesVisible, setAreRulesVisible] = useState(false);
+    const [selectedRegions, setSelectedRegions] = useState([]);
 
     const toggleRules = () => {
         const newRulesState = !areRulesVisible;
@@ -12,10 +13,28 @@ export function AppProvider({ children }) {
         setAreRegionsVisible(!newRulesState);
     };
 
+    const toggleRegionSelection = (regionName) => {
+        setSelectedRegions(prev => {
+            if (prev.includes(regionName)) {
+                return prev.filter(r => r !== regionName);
+            } else {
+                return [...prev, regionName];
+            }
+        });
+    };
+
+    const resetSelection = () => {
+        setSelectedRegions([]);
+    };
+
     const value = {
         areRegionsVisible,
         areRulesVisible,
-        toggleRules
+        toggleRules,
+        selectedRegions,
+        setSelectedRegions,
+        toggleRegionSelection,
+        resetSelection
     };
 
     return (

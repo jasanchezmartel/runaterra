@@ -44,10 +44,10 @@ function DynamicFaction({
     customClassName = '',
     showChampionNames = true
 }) {
-    
+
     const { viewMode, toggleViewMode } = useRegionViewMode(regionName, 'icons-only');
     const { champions: regionChampions } = useChampions(regionName);
-    const { selectRegionManually } = useAppContext(); // ← Usa el contexto
+    const { toggleRegionSelection, selectedRegions } = useAppContext();
 
     const regionClass = `region-extended region-${regionName.replace(/\s+/g, '-').toLowerCase()} ${customClassName} ${viewMode === 'icons-only' ? 'icons-only-view' : ''}`;
     const factionNameClass = `faction-name--${regionName.replace(/\s+/g, '-').toLowerCase()}`;
@@ -58,8 +58,13 @@ function DynamicFaction({
     // Función para manejar el click en la imagen de la región
     const handleRegionClick = (e) => {
         e.stopPropagation(); // Evitar que se propague al toggleViewMode
-        selectRegionManually(regionName); // Seleccionar región manualmente
+        toggleRegionSelection(regionName); // Seleccionar región manualmente
     };
+
+    // Si la región está seleccionada, no mostrarla en la lista superior
+    if (selectedRegions.includes(regionName)) {
+        return null; // O podrías retornar un div vacío o con clase 'hidden' si prefieres mantener el espacio
+    }
 
     return (
         <div className={regionClass}>
@@ -67,8 +72,8 @@ function DynamicFaction({
                 className="faction-extended-img"
                 src={bannerImage}
                 alt={regionName}
-                onClick={handleRegionClick} // ← Cambia a la nueva función
-                style={{ cursor: 'pointer' }} // ← Para indicar que es clickeable
+                onClick={handleRegionClick}
+                style={{ cursor: 'pointer' }}
             />
 
             <div className="region-content">

@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useChampionsContext } from '../../contexts/championContext.jsx';
+import { useAppContext } from '../../contexts/appContext.jsx';
 import ChampionCard from '../Champion/ChampionCard.jsx';
 import './SelectedFaction.css';
 
@@ -43,38 +44,29 @@ const selectionHistory = {
 };
 
 function SelectedFaction() {
-    const [selectedRegions, setSelectedRegions] = useState([]);
     const [isSelecting, setIsSelecting] = useState(false);
     const [previousSelection, setPreviousSelection] = useState([]);
-    const [bannedChampions, setBannedChampions] = useState({});
     const containerRef = useRef(null);
 
-    const { getChampionsByRegion } = useChampionsContext();
+    const {
+        getChampionsByRegion,
+        bannedChampions,
+        toggleBanChampion,
+        resetBans,
+        loading
+    } = useChampionsContext();
+
+    const {
+        selectedRegions,
+        setSelectedRegions,
+        resetSelection
+    } = useAppContext();
 
     const allRegions = [
         'Aguas Estancadas', 'Ciudad de Bandle', 'Demacia', 'El Vacío', 'Freljord',
-        'Islas de la sombra', 'Ixtal', 'Jonia', 'Noxus', 'Piltover', 
+        'Islas de la sombra', 'Ixtal', 'Jonia', 'Noxus', 'Piltover',
         'Runaterra', 'Shurima', 'Targon', 'Zaun'
     ];
-
-    const toggleBanChampion = (regionName, championName) => {
-        setBannedChampions(prev => {
-            const regionBans = prev[regionName] || [];
-            const isCurrentlyBanned = regionBans.includes(championName);
-
-            if (isCurrentlyBanned) {
-                return {
-                    ...prev,
-                    [regionName]: regionBans.filter(name => name !== championName)
-                };
-            } else {
-                return {
-                    ...prev,
-                    [regionName]: [...regionBans, championName]
-                };
-            }
-        });
-    };
 
     // Inicializar el conteo de selecciones
     useEffect(() => {
@@ -100,9 +92,9 @@ function SelectedFaction() {
 
     useEffect(() => {
         const handleReset = () => {
-            setSelectedRegions([]);
+            resetSelection(); // Usar función del contexto para regiones
             setPreviousSelection([]);
-            setBannedChampions({});
+            resetBans(); // Usar función del contexto para baneos
 
             // Reiniciar historial
             selectionHistory.recent = [];
@@ -116,13 +108,13 @@ function SelectedFaction() {
         return () => {
             window.removeEventListener('resetRegions', handleReset);
         };
-    }, []);
+    }, [resetBans, resetSelection]);
 
     const selectRandomRegions = (numberOfRegions = 2) => {
         if (isSelecting) return;
 
         setIsSelecting(true);
-        revertPreviousSelection();
+        // revertPreviousSelection ya no es necesario porque DynamicFaction maneja su visibilidad
 
         setTimeout(() => {
             const newSelected = getBalancedRandomRegions(numberOfRegions);
@@ -133,7 +125,7 @@ function SelectedFaction() {
 
             // Actualizar historial
             updateSelectionHistory(newSelected);
-            hideSelectedRegions(newSelected);
+            // hideSelectedRegions ya no es necesario aquí porque DynamicFaction se oculta solo
         }, 1500);
     };
 
@@ -157,9 +149,9 @@ function SelectedFaction() {
 
         const leastUsedCount = Math.min(numberOfRegions * 3, sortedByUsage.length);
         const leastUsed = sortedByUsage.slice(0, leastUsedCount);
-        
+
         const shuffledLeastUsed = [...leastUsed].sort(() => 0.5 - Math.random())
-                                              .sort(() => 0.5 - Math.random());
+            .sort(() => 0.5 - Math.random());
 
         const selected = shuffledLeastUsed.slice(0, numberOfRegions);
 
@@ -185,39 +177,6 @@ function SelectedFaction() {
         if (selectionHistory.recent.length > 4) {
             selectionHistory.recent = selectionHistory.recent.slice(-4);
         }
-    };
-
-    const revertPreviousSelection = () => {
-        const allRegionElements = document.querySelectorAll('[class*="region-extended region-"]');
-        allRegionElements.forEach(element => {
-            element.style.visibility = 'visible';
-        });
-    };
-
-    const hideSelectedRegions = (selected) => {
-        selected.forEach(regionName => {
-            const formattedName = regionName.toLowerCase().replace(/\s+/g, '-');
-
-            const selectors = [
-                `.region-extended.region-${formattedName}`,
-                `.region-extended.region-${formattedName}.icons-only-view`,
-                `.region-extended.region-${formattedName}:not(.icons-only-view)`
-            ];
-
-            selectors.forEach(selector => {
-                const regionElement = document.querySelector(selector);
-                if (regionElement) {
-                    regionElement.style.visibility = 'hidden';
-                }
-            });
-
-            const allElements = document.querySelectorAll('[class*="region-extended"]');
-            allElements.forEach(element => {
-                if (element.classList.contains(`region-${formattedName}`)) {
-                    element.style.visibility = 'hidden';
-                }
-            });
-        });
     };
 
     const SelectedRegionDisplay = React.memo(({ regionName, bannedChampions, onToggleBan }) => {
@@ -258,6 +217,10 @@ function SelectedFaction() {
             </div>
         );
     });
+
+    if (loading) {
+        return <div className="loading-container">Cargando campeones...</div>;
+    }
 
     return (
         <div className="selected-faction-container" ref={containerRef}>

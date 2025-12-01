@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChampionsProvider } from '/contexts/ChampionsContext.js';
+import { ChampionsProvider } from './contexts/championContext.jsx';
 import SelectedFaction from './components/SelectedFaction';
 import Header from './components/Header';
 
