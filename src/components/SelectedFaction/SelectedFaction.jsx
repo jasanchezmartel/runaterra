@@ -77,18 +77,7 @@ function SelectedFaction() {
         }
     }, []);
 
-    // Efecto para ajustar la altura del contenedor
-    useEffect(() => {
-        if (containerRef.current) {
-            if (selectedRegions.length > 0) {
-                const heightPerRegion = 600;
-                const totalHeight = selectedRegions.length * heightPerRegion + 100;
-                containerRef.current.style.minHeight = `${totalHeight}px`;
-            } else {
-                containerRef.current.style.minHeight = 'auto';
-            }
-        }
-    }, [selectedRegions]);
+
 
     useEffect(() => {
         const handleReset = () => {

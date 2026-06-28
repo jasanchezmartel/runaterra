@@ -15,28 +15,31 @@
 }
 
 .random-btn {
-    padding: 12px 24px;
-    border: none;
-    border-radius: 8px;
+    padding: 12px 28px;
+    background: transparent;
+    border: 1px solid #c8aa6e;
+    border-radius: 4px;
+    color: #c8aa6e;
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 500;
+    font-family: 'Cormorant Garamond', serif;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
-.random-btn {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    color: white;
-}
-
 .random-btn:disabled {
-    opacity: 0.6;
+    opacity: 0.5;
     cursor: not-allowed;
+    border-color: #666;
+    color: #666;
 }
 
 .random-btn:hover:not(:disabled) {
+    background: rgba(200, 170, 110, 0.15);
+    box-shadow: 0 4px 12px rgba(200, 170, 110, 0.2);
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
 }
 
 .selected-regions-display {
