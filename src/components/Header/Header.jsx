@@ -1,32 +1,15 @@
 import { useAppContext } from '../../contexts/appContext.jsx';
+import { useChampionsContext } from '../../contexts/championContext.jsx';
 import "./Header.css";
 
 function Header() {
-  const { toggleRules } = useAppContext();
-  const { resetAllBans } = useAppContext();
+  const { toggleRules, resetSelection } = useAppContext();
+  const { resetBans } = useChampionsContext();
 
-  const resetSelection = () => {
-    const allRegionElements = document.querySelectorAll('[class*="region-extended"]');
-    allRegionElements.forEach(element => {
-      element.style.visibility = 'visible';
-    });
-
-    const selectedRegionsDisplay = document.querySelector('.selected-regions-display');
-    if (selectedRegionsDisplay) {
-      selectedRegionsDisplay.innerHTML = '';
-    }
-
-    const selectionControls = document.querySelector('.selection-controls');
-    if (selectionControls) {
-      const randomBtn = selectionControls.querySelector('.random-btn');
-      if (randomBtn) {
-        randomBtn.disabled = false;
-        randomBtn.textContent = 'Seleccionar 2 regiones';
-      }
-    }
-
-    resetAllBans(); // ← Resetear baneos globales
-    window.dispatchEvent(new CustomEvent('resetRegions'));
+  const handleReset = () => {
+    resetSelection();   // Devuelve todas las regiones a las columnas laterales
+    resetBans();        // Desmarca todos los baneos
+    window.dispatchEvent(new CustomEvent('resetRegions')); // Notifica al historial en SelectedFaction
   };
 
   // Función combinada que maneja tanto las reglas como la lógica existente
@@ -45,9 +28,9 @@ function Header() {
       <div className="page-title">
         <p className="text-title">Minijuego Runaterra</p>
       </div>
-      <div className="header-reset">
-        <p id="text-reset">Work in progress</p>
-        <svg id="reset-svg" onClick={resetSelection} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <div className="header-reset" onClick={handleReset} style={{ cursor: 'pointer' }}>
+        <p id="text-reset">Reiniciar</p>
+        <svg id="reset-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path
             d="M11 2L13 3.99545L12.9408 4.05474M13 18.0001L11 19.9108L11.0297 19.9417M12.9408 4.05474L11 6M12.9408 4.05474C12.6323 4.01859 12.3183 4 12 4C7.58172 4 4 7.58172 4 12C4 14.5264 5.17107 16.7793 7 18.2454M17 5.75463C18.8289 7.22075 20 9.47362 20 12C20 16.4183 16.4183 20 12 20C11.6716 20 11.3477 19.9802 11.0297 19.9417M13 22.0001L11.0297 19.9417"
             stroke="#E6AC00"

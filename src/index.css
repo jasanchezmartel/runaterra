@@ -1,3 +1,22 @@
 ::-webkit-scrollbar {
     display: none;
 }
+
+/* Deshabilitar selección de texto e imágenes en toda la página */
+*, *::before, *::after {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-drag: none;
+}
+
+/* Permitir selección únicamente dentro del overlay de reglas */
+.rules-content,
+.rules-content * {
+    user-select: text;
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    -webkit-user-drag: auto;
+}

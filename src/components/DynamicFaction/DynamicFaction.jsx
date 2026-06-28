@@ -70,6 +70,7 @@ function DynamicFaction({
                 alt={regionName}
                 onClick={handleRegionClick}
                 style={{ cursor: 'pointer' }}
+                title="Mostrar región"
             />
 
             <div className="region-content">
