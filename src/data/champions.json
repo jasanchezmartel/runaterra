@@ -1,173 +1,690 @@
 [
-    {"name": "Aatrox", "faction": "Runaterra"},
-    {"name": "Ahri", "faction": "Jonia"},
-    {"name": "Akali", "faction": "Jonia"},
-    {"name": "Akshan", "faction": "Shurima"},
-    {"name": "Alistar", "faction": "Runaterra"},
-    {"name": "Ambessa", "faction": "Noxus"},
-    {"name": "Amumu", "faction": "Shurima"},
-    {"name": "Anivia", "faction": "Freljord"},
-    {"name": "Annie", "faction": "Runaterra"},
-    {"name": "Aphelios", "faction": "Targon"},
-    {"name": "Ashe", "faction": "Freljord"},
-    {"name": "Aurelion Sol", "faction": "Targon"},
-    {"name": "Aurora", "faction": "Freljord"},
-    {"name": "Azir", "faction": "Shurima"},
-    {"name": "Bardo", "faction": "Runaterra"},
-    {"name": "Bel'Veth", "faction": "El Vacío"},
-    {"name": "Blitzcrank", "faction": "Zaun"},
-    {"name": "Brand", "faction": "Runaterra"},
-    {"name": "Braum", "faction": "Freljord"},
-    {"name": "Briar", "faction": "Noxus"},
-    {"name": "Caitlyn", "faction": "Piltover"},
-    {"name": "Camille", "faction": "Piltover"},
-    {"name": "Cassiopeia", "faction": "Noxus"},
-    {"name": "Cho'Gath", "faction": "El Vacío"},
-    {"name": "Corki", "faction": "Ciudad de Bandle"},
-    {"name": "Darius", "faction": "Noxus"},
-    {"name": "Diana", "faction": "Targon"},
-    {"name": "Dr. Mundo", "faction": "Zaun"},
-    {"name": "Draven", "faction": "Noxus"},
-    {"name": "Ekko", "faction": "Zaun"},
-    {"name": "Elise", "faction": "Islas de la sombra"},
-    {"name": "Evelynn", "faction": "Runaterra"},
-    {"name": "Ezreal", "faction": "Piltover"},
-    {"name": "Fiddlesticks", "faction": "Runaterra"},
-    {"name": "Fiora", "faction": "Demacia"},
-    {"name": "Fizz", "faction": "Runaterra"},
-    {"name": "Galio", "faction": "Demacia"},
-    {"name": "Gangplank", "faction": "Aguas Estancadas"},
-    {"name": "Garen", "faction": "Demacia"},
-    {"name": "Gnar", "faction": "Freljord"},
-    {"name": "Gragas", "faction": "Freljord"},
-    {"name": "Graves", "faction": "Aguas Estancadas"},
-    {"name": "Gwen", "faction": "Islas de la sombra"},
-    {"name": "Hecarim", "faction": "Islas de la sombra"},
-    {"name": "Heimerdinger", "faction": "Piltover"},
-    {"name": "Hwei", "faction": "Jonia"},
-    {"name": "Illaoi", "faction": "Aguas Estancadas"},
-    {"name": "Irelia", "faction": "Jonia"},
-    {"name": "Ivern", "faction": "Jonia"},
-    {"name": "Janna", "faction": "Zaun"},
-    {"name": "Jarvan IV", "faction": "Demacia"},
-    {"name": "Jax", "faction": "Runaterra"},
-    {"name": "Jayce", "faction": "Piltover"},
-    {"name": "Jhin", "faction": "Jonia"},
-    {"name": "Jinx", "faction": "Zaun"},
-    {"name": "K'Sante", "faction": "Shurima"},
-    {"name": "Kai'Sa", "faction": "El Vacío"},
-    {"name": "Kalista", "faction": "Islas de la sombra"},
-    {"name": "Karma", "faction": "Jonia"},
-    {"name": "Karthus", "faction": "Islas de la sombra"},
-    {"name": "Kassadin", "faction": "El Vacío"},
-    {"name": "Katarina", "faction": "Noxus"},
-    {"name": "Kayle", "faction": "Demacia"},
-    {"name": "Kayn", "faction": "Jonia"},
-    {"name": "Kennen", "faction": "Jonia"},
-    {"name": "Kha'Zix", "faction": "El Vacío"},
-    {"name": "Kindred", "faction": "Runaterra"},
-    {"name": "Kled", "faction": "Noxus"},
-    {"name": "Kog'Maw", "faction": "El Vacío"},
-    {"name": "Le Blanc", "faction": "Noxus"},
-    {"name": "Lee Sin", "faction": "Jonia"},
-    {"name": "Leona", "faction": "Targon"},
-    {"name": "Lillia", "faction": "Jonia"},
-    {"name": "Lissandra", "faction": "Freljord"},
-    {"name": "Lucian", "faction": "Runaterra"},
-    {"name": "Lulu", "faction": "Ciudad de Bandle"},
-    {"name": "Lux", "faction": "Demacia"},
-    {"name": "Maestro Yi", "faction": "Jonia"},
-    {"name": "Malphite", "faction": "Ixtal"},
-    {"name": "Malzahar", "faction": "El Vacío"},
-    {"name": "Maokai", "faction": "Islas de la sombra"},
-    {"name": "Mel", "faction": "Noxus"},
-    {"name": "Milio", "faction": "Ixtal"},
-    {"name": "Miss Fortune", "faction": "Aguas Estancadas"},
-    {"name": "Mordekaiser", "faction": "Noxus"},
-    {"name": "Morgana", "faction": "Demacia"},
-    {"name": "Naafiri", "faction": "Shurima"},
-    {"name": "Nami", "faction": "Runaterra"},
-    {"name": "Nasus", "faction": "Shurima"},
-    {"name": "Nautilus", "faction": "Aguas Estancadas"},
-    {"name": "Neeko", "faction": "Ixtal"},
-    {"name": "Nidalee", "faction": "Ixtal"},
-    {"name": "Nilah", "faction": "Aguas Estancadas"},
-    {"name": "Nocturne", "faction": "Runaterra"},
-    {"name": "Nunu", "faction": "Freljord"},
-    {"name": "Olaf", "faction": "Freljord"},
-    {"name": "Orianna", "faction": "Piltover"},
-    {"name": "Ornn", "faction": "Freljord"},
-    {"name": "Pantheon", "faction": "Targon"},
-    {"name": "Poppy", "faction": "Demacia"},
-    {"name": "Pyke", "faction": "Aguas Estancadas"},
-    {"name": "Qiyana", "faction": "Ixtal"},
-    {"name": "Quinn", "faction": "Demacia"},
-    {"name": "Rakan", "faction": "Jonia"},
-    {"name": "Rammus", "faction": "Shurima"},
-    {"name": "Rek'Sai", "faction": "El Vacío"},
-    {"name": "Rell", "faction": "Noxus"},
-    {"name": "Renata Glasc", "faction": "Zaun"},
-    {"name": "Renekton", "faction": "Shurima"},
-    {"name": "Rengar", "faction": "Ixtal"},
-    {"name": "Riven", "faction": "Noxus"},
-    {"name": "Rumble", "faction": "Ciudad de Bandle"},
-    {"name": "Ryze", "faction": "Runaterra"},
-    {"name": "Samira", "faction": "Noxus"},
-    {"name": "Sejuani", "faction": "Freljord"},
-    {"name": "Senna", "faction": "Runaterra"},
-    {"name": "Seraphine", "faction": "Piltover"},
-    {"name": "Sett", "faction": "Jonia"},
-    {"name": "Shaco", "faction": "Runaterra"},
-    {"name": "Shen", "faction": "Jonia"},
-    {"name": "Shyvana", "faction": "Demacia"},
-    {"name": "Singed", "faction": "Zaun"},
-    {"name": "Sion", "faction": "Noxus"},
-    {"name": "Sivir", "faction": "Shurima"},
-    {"name": "Skarner", "faction": "Ixtal"},
-    {"name": "Smolder", "faction": "Runaterra"},
-    {"name": "Sona", "faction": "Demacia"},
-    {"name": "Soraka", "faction": "Targon"},
-    {"name": "Swain", "faction": "Noxus"},
-    {"name": "Sylas", "faction": "Demacia"},
-    {"name": "Syndra", "faction": "Jonia"},
-    {"name": "Tahm Kench", "faction": "Runaterra"},
-    {"name": "Taliyah", "faction": "Shurima"},
-    {"name": "Talon", "faction": "Noxus"},
-    {"name": "Taric", "faction": "Targon"},
-    {"name": "Teemo", "faction": "Ciudad de Bandle"},
-    {"name": "Thresh", "faction": "Islas de la sombra"},
-    {"name": "Tristana", "faction": "Ciudad de Bandle"},
-    {"name": "Trundle", "faction": "Freljord"},
-    {"name": "Tryndamere", "faction": "Freljord"},
-    {"name": "Twisted Fate", "faction": "Aguas Estancadas"},
-    {"name": "Twitch", "faction": "Zaun"},
-    {"name": "Udyr", "faction": "Freljord"},
-    {"name": "Urgot", "faction": "Zaun"},
-    {"name": "Varus", "faction": "Jonia"},
-    {"name": "Vayne", "faction": "Demacia"},
-    {"name": "Veigar", "faction": "Ciudad de Bandle"},
-    {"name": "Vel'Koz", "faction": "El Vacío"},
-    {"name": "Vex", "faction": "Islas de la sombra"},
-    {"name": "Vi", "faction": "Piltover"},
-    {"name": "Viego", "faction": "Islas de la sombra"},
-    {"name": "Viktor", "faction": "Zaun"},
-    {"name": "Vladimir", "faction": "Noxus"},
-    {"name": "Volibear", "faction": "Freljord"},
-    {"name": "Warwick", "faction": "Zaun"},
-    {"name": "Wukong", "faction": "Jonia"},
-    {"name": "Xayah", "faction": "Jonia"},
-    {"name": "Xerath", "faction": "Shurima"},
-    {"name": "Xin Zhao", "faction": "Demacia"},
-    {"name": "Yasuo", "faction": "Jonia"},
-    {"name": "Yone", "faction": "Jonia"},
-    {"name": "Yorick", "faction": "Islas de la sombra"},
-    {"name": "Yunara", "faction": "Jonia"},
-    {"name": "Yuumi", "faction": "Ciudad de Bandle"},
-    {"name": "Zac", "faction": "Zaun"},
-    {"name": "Zed", "faction": "Jonia"},
-    {"name": "Zeri", "faction": "Zaun"},
-    {"name": "Ziggs", "faction": "Zaun"},
-    {"name": "Zilean", "faction": "Runaterra"},
-    {"name": "Zoe", "faction": "Targon"},
-    {"name": "Zyra", "faction": "Ixtal"}
+    {
+        "name": "Aatrox",
+        "faction": "Runaterra"
+    },
+    {
+        "name": "Ahri",
+        "faction": "Jonia"
+    },
+    {
+        "name": "Akali",
+        "faction": "Jonia"
+    },
+    {
+        "name": "Akshan",
+        "faction": "Shurima"
+    },
+    {
+        "name": "Alistar",
+        "faction": "Runaterra"
+    },
+    {
+        "name": "Ambessa",
+        "faction": "Noxus"
+    },
+    {
+        "name": "Amumu",
+        "faction": "Shurima"
+    },
+    {
+        "name": "Anivia",
+        "faction": "Freljord"
+    },
+    {
+        "name": "Annie",
+        "faction": "Runaterra"
+    },
+    {
+        "name": "Aphelios",
+        "faction": "Targon"
+    },
+    {
+        "name": "Ashe",
+        "faction": "Freljord"
+    },
+    {
+        "name": "Aurelion Sol",
+        "faction": "Targon"
+    },
+    {
+        "name": "Aurora",
+        "faction": "Freljord"
+    },
+    {
+        "name": "Azir",
+        "faction": "Shurima"
+    },
+    {
+        "name": "Bardo",
+        "faction": "Runaterra"
+    },
+    {
+        "name": "Bel'Veth",
+        "faction": "El Vacío"
+    },
+    {
+        "name": "Blitzcrank",
+        "faction": "Zaun"
+    },
+    {
+        "name": "Brand",
+        "faction": "Runaterra"
+    },
+    {
+        "name": "Braum",
+        "faction": "Freljord"
+    },
+    {
+        "name": "Briar",
+        "faction": "Noxus"
+    },
+    {
+        "name": "Caitlyn",
+        "faction": "Piltover"
+    },
+    {
+        "name": "Camille",
+        "faction": "Piltover"
+    },
+    {
+        "name": "Cassiopeia",
+        "faction": "Noxus"
+    },
+    {
+        "name": "Cho'Gath",
+        "faction": "El Vacío"
+    },
+    {
+        "name": "Corki",
+        "faction": "Ciudad de Bandle"
+    },
+    {
+        "name": "Darius",
+        "faction": "Noxus"
+    },
+    {
+        "name": "Diana",
+        "faction": "Targon"
+    },
+    {
+        "name": "Dr. Mundo",
+        "faction": "Zaun"
+    },
+    {
+        "name": "Draven",
+        "faction": "Noxus"
+    },
+    {
+        "name": "Ekko",
+        "faction": "Zaun"
+    },
+    {
+        "name": "Elise",
+        "faction": "Islas de la sombra"
+    },
+    {
+        "name": "Evelynn",
+        "faction": "Runaterra"
+    },
+    {
+        "name": "Ezreal",
+        "faction": "Piltover"
+    },
+    {
+        "name": "Fiddlesticks",
+        "faction": "Runaterra"
+    },
+    {
+        "name": "Fiora",
+        "faction": "Demacia"
+    },
+    {
+        "name": "Fizz",
+        "faction": "Runaterra"
+    },
+    {
+        "name": "Galio",
+        "faction": "Demacia"
+    },
+    {
+        "name": "Gangplank",
+        "faction": "Aguas Estancadas"
+    },
+    {
+        "name": "Garen",
+        "faction": "Demacia"
+    },
+    {
+        "name": "Gnar",
+        "faction": "Freljord"
+    },
+    {
+        "name": "Gragas",
+        "faction": "Freljord"
+    },
+    {
+        "name": "Graves",
+        "faction": "Aguas Estancadas"
+    },
+    {
+        "name": "Gwen",
+        "faction": "Islas de la sombra"
+    },
+    {
+        "name": "Hecarim",
+        "faction": "Islas de la sombra"
+    },
+    {
+        "name": "Heimerdinger",
+        "faction": "Piltover"
+    },
+    {
+        "name": "Hwei",
+        "faction": "Jonia"
+    },
+    {
+        "name": "Illaoi",
+        "faction": "Aguas Estancadas"
+    },
+    {
+        "name": "Irelia",
+        "faction": "Jonia"
+    },
+    {
+        "name": "Ivern",
+        "faction": "Jonia"
+    },
+    {
+        "name": "Janna",
+        "faction": "Zaun"
+    },
+    {
+        "name": "Jarvan IV",
+        "faction": "Demacia"
+    },
+    {
+        "name": "Jax",
+        "faction": "Runaterra"
+    },
+    {
+        "name": "Jayce",
+        "faction": "Piltover"
+    },
+    {
+        "name": "Jhin",
+        "faction": "Jonia"
+    },
+    {
+        "name": "Jinx",
+        "faction": "Zaun"
+    },
+    {
+        "name": "K'Sante",
+        "faction": "Shurima"
+    },
+    {
+        "name": "Kai'Sa",
+        "faction": "El Vacío"
+    },
+    {
+        "name": "Kalista",
+        "faction": "Islas de la sombra"
+    },
+    {
+        "name": "Karma",
+        "faction": "Jonia"
+    },
+    {
+        "name": "Karthus",
+        "faction": "Islas de la sombra"
+    },
+    {
+        "name": "Kassadin",
+        "faction": "El Vacío"
+    },
+    {
+        "name": "Katarina",
+        "faction": "Noxus"
+    },
+    {
+        "name": "Kayle",
+        "faction": "Demacia"
+    },
+    {
+        "name": "Kayn",
+        "faction": "Jonia"
+    },
+    {
+        "name": "Kennen",
+        "faction": "Jonia"
+    },
+    {
+        "name": "Kha'Zix",
+        "faction": "El Vacío"
+    },
+    {
+        "name": "Kindred",
+        "faction": "Runaterra"
+    },
+    {
+        "name": "Kled",
+        "faction": "Noxus"
+    },
+    {
+        "name": "Kog'Maw",
+        "faction": "El Vacío"
+    },
+    {
+        "name": "Le Blanc",
+        "faction": "Noxus"
+    },
+    {
+        "name": "Lee Sin",
+        "faction": "Jonia"
+    },
+    {
+        "name": "Leona",
+        "faction": "Targon"
+    },
+    {
+        "name": "Lillia",
+        "faction": "Jonia"
+    },
+    {
+        "name": "Lissandra",
+        "faction": "Freljord"
+    },
+    {
+        "name": "Lucian",
+        "faction": "Runaterra"
+    },
+    {
+        "name": "Lulu",
+        "faction": "Ciudad de Bandle"
+    },
+    {
+        "name": "Lux",
+        "faction": "Demacia"
+    },
+    {
+        "name": "Maestro Yi",
+        "faction": "Jonia"
+    },
+    {
+        "name": "Malphite",
+        "faction": "Ixtal"
+    },
+    {
+        "name": "Malzahar",
+        "faction": "El Vacío"
+    },
+    {
+        "name": "Maokai",
+        "faction": "Islas de la sombra"
+    },
+    {
+        "name": "Mel",
+        "faction": "Noxus"
+    },
+    {
+        "name": "Milio",
+        "faction": "Ixtal"
+    },
+    {
+        "name": "Miss Fortune",
+        "faction": "Aguas Estancadas"
+    },
+    {
+        "name": "Mordekaiser",
+        "faction": "Noxus"
+    },
+    {
+        "name": "Morgana",
+        "faction": "Demacia"
+    },
+    {
+        "name": "Naafiri",
+        "faction": "Shurima"
+    },
+    {
+        "name": "Nami",
+        "faction": "Runaterra"
+    },
+    {
+        "name": "Nasus",
+        "faction": "Shurima"
+    },
+    {
+        "name": "Nautilus",
+        "faction": "Aguas Estancadas"
+    },
+    {
+        "name": "Neeko",
+        "faction": "Ixtal"
+    },
+    {
+        "name": "Nidalee",
+        "faction": "Ixtal"
+    },
+    {
+        "name": "Nilah",
+        "faction": "Aguas Estancadas"
+    },
+    {
+        "name": "Nocturne",
+        "faction": "Runaterra"
+    },
+    {
+        "name": "Nunu",
+        "faction": "Freljord"
+    },
+    {
+        "name": "Olaf",
+        "faction": "Freljord"
+    },
+    {
+        "name": "Orianna",
+        "faction": "Piltover"
+    },
+    {
+        "name": "Ornn",
+        "faction": "Freljord"
+    },
+    {
+        "name": "Pantheon",
+        "faction": "Targon"
+    },
+    {
+        "name": "Poppy",
+        "faction": "Demacia"
+    },
+    {
+        "name": "Pyke",
+        "faction": "Aguas Estancadas"
+    },
+    {
+        "name": "Qiyana",
+        "faction": "Ixtal"
+    },
+    {
+        "name": "Quinn",
+        "faction": "Demacia"
+    },
+    {
+        "name": "Rakan",
+        "faction": "Jonia"
+    },
+    {
+        "name": "Rammus",
+        "faction": "Shurima"
+    },
+    {
+        "name": "Rek'Sai",
+        "faction": "El Vacío"
+    },
+    {
+        "name": "Rell",
+        "faction": "Noxus"
+    },
+    {
+        "name": "Renata Glasc",
+        "faction": "Zaun"
+    },
+    {
+        "name": "Renekton",
+        "faction": "Shurima"
+    },
+    {
+        "name": "Rengar",
+        "faction": "Ixtal"
+    },
+    {
+        "name": "Riven",
+        "faction": "Noxus"
+    },
+    {
+        "name": "Rumble",
+        "faction": "Ciudad de Bandle"
+    },
+    {
+        "name": "Ryze",
+        "faction": "Runaterra"
+    },
+    {
+        "name": "Samira",
+        "faction": "Noxus"
+    },
+    {
+        "name": "Sejuani",
+        "faction": "Freljord"
+    },
+    {
+        "name": "Senna",
+        "faction": "Runaterra"
+    },
+    {
+        "name": "Seraphine",
+        "faction": "Piltover"
+    },
+    {
+        "name": "Sett",
+        "faction": "Jonia"
+    },
+    {
+        "name": "Shaco",
+        "faction": "Runaterra"
+    },
+    {
+        "name": "Shen",
+        "faction": "Jonia"
+    },
+    {
+        "name": "Shyvana",
+        "faction": "Demacia"
+    },
+    {
+        "name": "Singed",
+        "faction": "Zaun"
+    },
+    {
+        "name": "Sion",
+        "faction": "Noxus"
+    },
+    {
+        "name": "Sivir",
+        "faction": "Shurima"
+    },
+    {
+        "name": "Skarner",
+        "faction": "Ixtal"
+    },
+    {
+        "name": "Smolder",
+        "faction": "Runaterra"
+    },
+    {
+        "name": "Sona",
+        "faction": "Demacia"
+    },
+    {
+        "name": "Soraka",
+        "faction": "Targon"
+    },
+    {
+        "name": "Swain",
+        "faction": "Noxus"
+    },
+    {
+        "name": "Sylas",
+        "faction": "Demacia"
+    },
+    {
+        "name": "Syndra",
+        "faction": "Jonia"
+    },
+    {
+        "name": "Tahm Kench",
+        "faction": "Runaterra"
+    },
+    {
+        "name": "Taliyah",
+        "faction": "Shurima"
+    },
+    {
+        "name": "Talon",
+        "faction": "Noxus"
+    },
+    {
+        "name": "Taric",
+        "faction": "Targon"
+    },
+    {
+        "name": "Teemo",
+        "faction": "Ciudad de Bandle"
+    },
+    {
+        "name": "Thresh",
+        "faction": "Islas de la sombra"
+    },
+    {
+        "name": "Tristana",
+        "faction": "Ciudad de Bandle"
+    },
+    {
+        "name": "Trundle",
+        "faction": "Freljord"
+    },
+    {
+        "name": "Tryndamere",
+        "faction": "Freljord"
+    },
+    {
+        "name": "Twisted Fate",
+        "faction": "Aguas Estancadas"
+    },
+    {
+        "name": "Twitch",
+        "faction": "Zaun"
+    },
+    {
+        "name": "Udyr",
+        "faction": "Freljord"
+    },
+    {
+        "name": "Urgot",
+        "faction": "Zaun"
+    },
+    {
+        "name": "Varus",
+        "faction": "Jonia"
+    },
+    {
+        "name": "Vayne",
+        "faction": "Demacia"
+    },
+    {
+        "name": "Veigar",
+        "faction": "Ciudad de Bandle"
+    },
+    {
+        "name": "Vel'Koz",
+        "faction": "El Vacío"
+    },
+    {
+        "name": "Vex",
+        "faction": "Islas de la sombra"
+    },
+    {
+        "name": "Vi",
+        "faction": "Piltover"
+    },
+    {
+        "name": "Viego",
+        "faction": "Islas de la sombra"
+    },
+    {
+        "name": "Viktor",
+        "faction": "Zaun"
+    },
+    {
+        "name": "Vladimir",
+        "faction": "Noxus"
+    },
+    {
+        "name": "Volibear",
+        "faction": "Freljord"
+    },
+    {
+        "name": "Warwick",
+        "faction": "Zaun"
+    },
+    {
+        "name": "Wukong",
+        "faction": "Jonia"
+    },
+    {
+        "name": "Xayah",
+        "faction": "Jonia"
+    },
+    {
+        "name": "Xerath",
+        "faction": "Shurima"
+    },
+    {
+        "name": "Xin Zhao",
+        "faction": "Demacia"
+    },
+    {
+        "name": "Yasuo",
+        "faction": "Jonia"
+    },
+    {
+        "name": "Yone",
+        "faction": "Jonia"
+    },
+    {
+        "name": "Yorick",
+        "faction": "Islas de la sombra"
+    },
+    {
+        "name": "Yunara",
+        "faction": "Jonia"
+    },
+    {
+        "name": "Yuumi",
+        "faction": "Ciudad de Bandle"
+    },
+    {
+        "name": "Zac",
+        "faction": "Zaun"
+    },
+    {
+        "name": "Zed",
+        "faction": "Jonia"
+    },
+    {
+        "name": "Zeri",
+        "faction": "Zaun"
+    },
+    {
+        "name": "Ziggs",
+        "faction": "Zaun"
+    },
+    {
+        "name": "Zilean",
+        "faction": "Runaterra"
+    },
+    {
+        "name": "Zoe",
+        "faction": "Targon"
+    },
+    {
+        "name": "Zyra",
+        "faction": "Ixtal"
+    },
+    {
+        "name": "Locke",
+        "faction": "Demacia"
+    }
 ]
