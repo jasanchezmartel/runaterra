@@ -43,10 +43,13 @@ const selectionHistory = {
     allTime: {}
 };
 
-const SelectedRegionDisplay = React.memo(({ regionName, bannedChampions, onToggleBan, isSelecting, getChampionsByRegion }) => {
+
+
+const SelectedRegionDisplay = React.memo(({ regionName, bannedChampions, onToggleBan, isSelecting, getChampionsByRegion, toggleRegionSelection }) => {
+    const [isRemoving, setIsRemoving] = useState(false);
     const regionChampions = getChampionsByRegion(regionName);
 
-    const regionClass = `selected-region-display region-${regionName.replace(/\s+/g, '-').toLowerCase()} ${isSelecting ? 'fade-out-anim' : ''}`;
+    const regionClass = `selected-region-display region-${regionName.replace(/\s+/g, '-').toLowerCase()} ${isSelecting || isRemoving ? 'fade-out-anim' : ''}`;
     const factionNameClass = `faction-name--${regionName.replace(/\s+/g, '-').toLowerCase()}`;
     const gridClass = 'region-grid-champion';
     const bannerImage = regionImages[regionName];
@@ -55,15 +58,26 @@ const SelectedRegionDisplay = React.memo(({ regionName, bannedChampions, onToggl
         return (bannedChampions[regionName] || []).includes(championName);
     };
 
+    const handleRemoveClick = () => {
+        if (isRemoving || isSelecting) return;
+        setIsRemoving(true);
+        setTimeout(() => {
+            toggleRegionSelection(regionName);
+        }, 800);
+    };
+
     return (
         <div className={regionClass}>
             <img
                 className="faction-extended-img"
                 src={bannerImage}
                 alt={regionName}
+                onClick={handleRemoveClick}
+                style={{ cursor: 'pointer' }}
+                title="Quitar región"
             />
             <div className="region-content">
-                <p className={factionNameClass}>{regionName.toUpperCase()}</p>
+                <p className={factionNameClass} onClick={handleRemoveClick} style={{ cursor: 'pointer' }} title="Quitar región">{regionName.toUpperCase()}</p>
                 <div className={gridClass}>
                     {regionChampions.map((champion) => (
                         <ChampionCard
@@ -79,6 +93,7 @@ const SelectedRegionDisplay = React.memo(({ regionName, bannedChampions, onToggl
                 </div>
             </div>
         </div>
+
     );
 });
 
@@ -98,7 +113,8 @@ function SelectedFaction() {
     const {
         selectedRegions,
         setSelectedRegions,
-        resetSelection
+        resetSelection,
+        toggleRegionSelection
     } = useAppContext();
 
     const allRegions = [
@@ -115,8 +131,6 @@ function SelectedFaction() {
             });
         }
     }, []);
-
-
 
     useEffect(() => {
         const handleReset = () => {
@@ -207,8 +221,6 @@ function SelectedFaction() {
         }
     };
 
-
-
     if (loading) {
         return <div className="loading-container">Cargando campeones...</div>;
     }
@@ -243,6 +255,7 @@ function SelectedFaction() {
                                 onToggleBan={toggleBanChampion}
                                 isSelecting={isSelecting}
                                 getChampionsByRegion={getChampionsByRegion}
+                                toggleRegionSelection={toggleRegionSelection}
                             />
                         ))}
                     </div>

@@ -14,12 +14,14 @@
     left: 5vw;
     width: 89.20vw;
     margin-top: 10vh;
-    z-index: -10;
+    z-index: 1;
+    pointer-events: none; /* El fondo no bloquea clicks en el centro */
 }
 
 .first-faction-icons,
 .second-faction-icons {
     display: grid;
+    pointer-events: auto; /* Restaurar clicks en las columnas laterales reales */
 }
 
 .faction-name--aguas-estancadas {
@@ -183,4 +185,5 @@
     top: 4vh;
     width: 66.80vw;
     min-height: 170vh;
+    pointer-events: none; /* El wrapper no bloquea clicks, solo los hijos sí */
 }

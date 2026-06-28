@@ -4,6 +4,7 @@
     align-items: center;
     width: 68vw;
     z-index: 20;
+    pointer-events: auto; /* Restaurar clicks dentro del contenedor real */
 }
 
 .selection-controls {
