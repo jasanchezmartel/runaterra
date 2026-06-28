@@ -49,7 +49,8 @@ function DynamicFaction({
     const { champions: regionChampions } = useChampions(regionName);
     const { toggleRegionSelection, selectedRegions } = useAppContext();
 
-    const regionClass = `region-extended region-${regionName.replace(/\s+/g, '-').toLowerCase()} ${customClassName} ${viewMode === 'icons-only' ? 'icons-only-view' : ''}`;
+    const isHidden = selectedRegions.includes(regionName);
+    const regionClass = `region-extended region-${regionName.replace(/\s+/g, '-').toLowerCase()} ${customClassName} ${viewMode === 'icons-only' ? 'icons-only-view' : ''} ${isHidden ? 'region-hidden' : ''}`;
     const factionNameClass = `faction-name--${regionName.replace(/\s+/g, '-').toLowerCase()}`;
     const gridClass = 'region-grid-champion';
 
@@ -60,11 +61,6 @@ function DynamicFaction({
         e.stopPropagation(); // Evitar que se propague al toggleViewMode
         toggleRegionSelection(regionName); // Seleccionar región manualmente
     };
-
-    // Si la región está seleccionada, no mostrarla en la lista superior
-    if (selectedRegions.includes(regionName)) {
-        return null; // O podrías retornar un div vacío o con clase 'hidden' si prefieres mantener el espacio
-    }
 
     return (
         <div className={regionClass}>

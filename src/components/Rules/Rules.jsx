@@ -1,16 +1,35 @@
+import React, { useEffect, useRef } from 'react';
 import { useAppContext } from '../../contexts/appContext.jsx';
 import './Rules.css';
 
 function Rules() {
-    const { areRulesVisible } = useAppContext();
+    const { areRulesVisible, toggleRules } = useAppContext();
+    const overlayRef = useRef(null);
 
-    // RENDERIZADO CONDICIONAL - Esto reemplaza las funciones de visibilidad
-    if (!areRulesVisible) {
-        return null;
-    }
+    // Evitar scroll en el body cuando el overlay está activo
+    useEffect(() => {
+        if (areRulesVisible) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+        return () => {
+            document.body.style.overflow = 'unset';
+        };
+    }, [areRulesVisible]);
+
+    // RENDERIZADO CONDICIONAL - Ya no desmontamos el componente para permitir animaciones de fade
+    const overlayClass = `rules-overlay ${!areRulesVisible ? 'rules-hidden' : ''}`;
+
+    const handleOverlayClick = (e) => {
+        // Solo cerramos si se hace click exactamente en el fondo oscuro, no dentro del contenido
+        if (e.target === overlayRef.current) {
+            toggleRules();
+        }
+    };
 
     return (
-        <div className="rules-overlay">
+        <div className={overlayClass} ref={overlayRef} onClick={handleOverlayClick}>
             <div className="rules-content">
                 <div className="paragraph-container" id="paragraph-container">
                     <p className="paragraph-p">Se puede usar esta página para jugar tanto normales como partidas personalizadas, se desglosará en 2 secciones:</p>

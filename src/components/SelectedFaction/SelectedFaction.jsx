@@ -43,6 +43,45 @@ const selectionHistory = {
     allTime: {}
 };
 
+const SelectedRegionDisplay = React.memo(({ regionName, bannedChampions, onToggleBan, isSelecting, getChampionsByRegion }) => {
+    const regionChampions = getChampionsByRegion(regionName);
+
+    const regionClass = `selected-region-display region-${regionName.replace(/\s+/g, '-').toLowerCase()} ${isSelecting ? 'fade-out-anim' : ''}`;
+    const factionNameClass = `faction-name--${regionName.replace(/\s+/g, '-').toLowerCase()}`;
+    const gridClass = 'region-grid-champion';
+    const bannerImage = regionImages[regionName];
+
+    const isChampionBanned = (championName) => {
+        return (bannedChampions[regionName] || []).includes(championName);
+    };
+
+    return (
+        <div className={regionClass}>
+            <img
+                className="faction-extended-img"
+                src={bannerImage}
+                alt={regionName}
+            />
+            <div className="region-content">
+                <p className={factionNameClass}>{regionName.toUpperCase()}</p>
+                <div className={gridClass}>
+                    {regionChampions.map((champion) => (
+                        <ChampionCard
+                            className={`champion-${regionName.replace(/\s+/g, '-').toLowerCase()} ${isChampionBanned(champion.name) ? 'banned' : ''}`}
+                            key={champion.name}
+                            championName={champion.name}
+                            region={regionName}
+                            showName={true}
+                            isBanned={isChampionBanned(champion.name)}
+                            onToggleBan={() => onToggleBan(regionName, champion.name)}
+                        />
+                    ))}
+                </div>
+            </div>
+        </div>
+    );
+});
+
 function SelectedFaction() {
     const [isSelecting, setIsSelecting] = useState(false);
     const [previousSelection, setPreviousSelection] = useState([]);
@@ -168,44 +207,7 @@ function SelectedFaction() {
         }
     };
 
-    const SelectedRegionDisplay = React.memo(({ regionName, bannedChampions, onToggleBan }) => {
-        const regionChampions = getChampionsByRegion(regionName);
 
-        const regionClass = `selected-region-display region-${regionName.replace(/\s+/g, '-').toLowerCase()}`;
-        const factionNameClass = `faction-name--${regionName.replace(/\s+/g, '-').toLowerCase()}`;
-        const gridClass = 'region-grid-champion';
-        const bannerImage = regionImages[regionName];
-
-        const isChampionBanned = (championName) => {
-            return (bannedChampions[regionName] || []).includes(championName);
-        };
-
-        return (
-            <div className={regionClass}>
-                <img
-                    className="faction-extended-img"
-                    src={bannerImage}
-                    alt={regionName}
-                />
-                <div className="region-content">
-                    <p className={factionNameClass}>{regionName.toUpperCase()}</p>
-                    <div className={gridClass}>
-                        {regionChampions.map((champion) => (
-                            <ChampionCard
-                                className={`champion-${regionName.replace(/\s+/g, '-').toLowerCase()} ${isChampionBanned(champion.name) ? 'banned' : ''}`}
-                                key={champion.name}
-                                championName={champion.name}
-                                region={regionName}
-                                showName={true}
-                                isBanned={isChampionBanned(champion.name)}
-                                onToggleBan={() => onToggleBan(regionName, champion.name)}
-                            />
-                        ))}
-                    </div>
-                </div>
-            </div>
-        );
-    });
 
     if (loading) {
         return <div className="loading-container">Cargando campeones...</div>;
@@ -239,6 +241,8 @@ function SelectedFaction() {
                                 regionName={region}
                                 bannedChampions={bannedChampions}
                                 onToggleBan={toggleBanChampion}
+                                isSelecting={isSelecting}
+                                getChampionsByRegion={getChampionsByRegion}
                             />
                         ))}
                     </div>

@@ -4,63 +4,99 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.9);
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 999;
+    z-index: 9999;
     padding: 20px;
     box-sizing: border-box;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.8s ease-in-out, visibility 0s linear 0s;
+}
+
+.rules-overlay.rules-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.8s ease-in-out, visibility 0s linear 0.8s;
 }
 
 .rules-content {
-    position: absolute;
-    top: 14vh;
-    background: #2d2d2d;
-    padding: 2rem;
-    border-radius: 15px;
-    width: 70vw;
+    background: rgba(15, 15, 18, 0.95);
+    padding: 3rem 4rem;
+    border-radius: 8px;
+    width: 80vw;
+    max-width: 900px;
     max-height: 80vh;
     overflow-y: auto;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
-    border: 2px solid #555;
-    color: #ffffff;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+    border: 1px solid #c8aa6e;
+    color: #e5d39f;
     box-sizing: border-box;
-    z-index: 1000; /* El contenido tiene z-index más alto */
+    z-index: 10000;
+}
+
+/* Custom Scrollbar for Rules */
+.rules-content::-webkit-scrollbar {
+    width: 8px;
+}
+.rules-content::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    margin: 10px 0;
+}
+.rules-content::-webkit-scrollbar-thumb {
+    background: #c8aa6e;
+    border-radius: 4px;
+}
+.rules-content::-webkit-scrollbar-thumb:hover {
+    background: #e5d39f;
 }
 
 .paragraph-container {
-    color: #ffffff !important;
+    color: #e5d39f !important;
 }
 
 .paragraph-p {
-    margin-bottom: 1.5rem;
-    font-size: 1.1rem;
-    color: #ffffff !important;
-    line-height: 1.7;
-    text-align: left;
-    font-family: Arial, sans-serif;
-    text-indent: 3rem;
+    margin-bottom: 1.8rem;
+    font-size: 1.15rem;
+    color: #dfd8c8 !important; /* Lighter, more neutral color for paragraphs */
+    line-height: 1.8;
+    text-align: justify;
+    text-indent: 2.5rem; /* Sangría en el primer renglón */
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    letter-spacing: 0.5px;
 }
 
-.paragraph-p-title{
+.paragraph-p-title {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 2.5rem;
     margin-bottom: 1.5rem;
-    font-size: 1.1rem;
-    color: #ffffff !important;
-    font-family: Arial, sans-serif;
+    font-size: 1.8rem;
+    color: #fcebb6 !important; /* Brighter gold/yellow for the title to stand out */
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5); /* Sombra para resaltar */
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-bottom: 1px solid rgba(252, 235, 182, 0.4);
+    padding-bottom: 0.5rem;
 }
 
 /* Asegurar que no haya estilos que oculten el texto */
 .rules-content * {
-    color: #ffffff !important;
     visibility: visible !important;
     opacity: 1 !important;
 }
 
 .header-main {
     position: relative;
-    z-index: 1000; /* Header por encima del overlay */
+    z-index: 1000;
 }

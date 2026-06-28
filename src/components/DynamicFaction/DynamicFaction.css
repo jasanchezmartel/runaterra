@@ -20,6 +20,16 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.8s ease-in-out, visibility 0s linear 0s;
+}
+
+.region-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.8s ease-in-out, visibility 0s linear 0.8s;
 }
 
 .region-Aguas {
